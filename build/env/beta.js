@@ -1,6 +1,6 @@
 module.exports = {
 	NODE_ENV: 'beta',
-	APP_ID: 'wx1081577a84fd8742',
+	APP_ID: 'wx34ced7d527d13e23',
 	API_URL: 'https://chehou-beta.yichehuoban.cn',
 	H5_URL:'https://cbsaas.yichehuoban.cn/saasmp/index.html#/',
 	URL_ID: 'B8668937-50F9-447D-8B33-601CB505D0AA',

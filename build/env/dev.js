@@ -1,6 +1,6 @@
 module.exports = {
 	NODE_ENV: 'development',
-	APP_ID: 'wx1081577a84fd8742',
+	APP_ID: 'wx34ced7d527d13e23',
 	API_URL: 'http://chehou-beta.yichehuoban.cn/dev',
 	H5_URL:'http://test-h5.iam.yichehuoban.cn/mph5/index.html',
 	URL_ID: 'B8668937-50F9-447D-8B33-601CB505D0AA',
