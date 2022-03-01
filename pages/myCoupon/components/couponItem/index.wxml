@@ -1,0 +1,25 @@
+<wxs src="./dealTools.wxs" module="dealTool"></wxs>
+<!--pages/myCoupon/components/couponItem/index.wxml-->
+<view class="{{obj['useCouponStatus']==0?'coupone-item':'coupone-item unactive'}}" catchtap="toCouponDetail">
+  <image wx:if="{{obj['couponUseMethod'].length==1}}" src="{{dealTool.getLeftTopImgUrl(obj)}}" alt="" class="left-top-icon"></image>
+  <image wx:elif="{{obj['couponUseMethod'].length>1}}" src="{{dealTool.getLeftTopImgUrl(obj)}}" alt="" class="left-top-icon" style="width:130rpx;"></image>
+  <image src="{{dealTool.getRightTopImgUrl(obj.useCouponStatus)}}" alt="" class="right-top-icon"></image>
+  <view class="left-con">
+    <block wx:if="{{obj.couponType==1 && obj.deductionAmount}}">
+      <view class="left-money">￥</view>
+      <view class="left-num-one {{obj.deductionAmount<10000?'fs32':'fs20'}}">{{dealTool.numToString(obj.deductionAmount,0)}}</view>
+      <view class="left-num-two" wx:if="{{obj.deductionAmount && obj.deductionAmount.indexOf('.')!=-1}}">.{{dealTool.numToString(obj.deductionAmount,1)}}</view>
+      <view class="left-unit"></view>
+    </block>
+    <block wx:else>
+      <view class="left-num-one">{{obj.discountRatio}}</view>
+      <view class="left-unit" wx:if="{{obj.discountRatio}}">折</view>
+    </block>
+  </view>
+  <view class="middle-con">
+    <view class="desc1" wx:if="{{obj.metAmount}}">满{{obj.metAmount}}元可用</view>
+    <view class="desc2" wx:if="{{obj['commodityType']!=null && obj['commodityType']!=0 && dealTool.goodsIsEnable(obj['commodityType'])}}">{{dealTool.goodsIsEnable(obj['commodityType'])}}</view>
+    <view class="desc3">{{dealTool.dealDate(obj.couponStartTime)}}-{{dealTool.dealDate(obj.couponEndTime)}}</view>
+  </view>
+  <view class="right-con" wx:if="{{obj.useCouponStatus==0 && obj['couponUseMethod']!=0}}" catchtap="handleToMake">去使用</view>
+</view>

@@ -1,0 +1,48 @@
+<!--pages/historyStorePage/index.wxml-->
+<!-- <comNav vTitle="切换门店" curPageName="historyPage"></comNav> -->
+<view class="history-box">
+  <view class="his-content-box">
+    <view wx:if="{{$state.isCurNoNetwork}}" class="no-data-box">
+      <view class="no-order">
+      <image class="no-order-img" src="./../../images/no-network.png"></image>
+      <text class="no-order-txt">网络开小差了</text>
+      <view class="re-load" bindtap="reLoad">重新加载</view>
+    </view>
+    </view>
+      <view wx:else catchtouchmove='true'>
+        <scrollView triggered="{{curPullDownStatus}}" height="{{1394}}" bindrefreshEvent="pullDownEvent" bindbottmRefreshEvent="loadTopEvent">
+        <!-- <view wx:for="{{2}}" style="height:200rpx;background:#eee;margin-bottom:10rpx;"></view> -->
+        <view style="height:24rpx;"></view>
+        <view class="his-item" wx:for="{{dataList}}" wx:for-index="idx" wx:key="unique">
+          <view class="cur-store" wx:if="{{idx==0}}">当前门店</view>
+          <view class="item-top">
+            <view class="top-title">{{item.tenantName}}</view>
+            <view wx:if="{{idx!=0}}" class="switch-store" bindtap="handleConfirm" data-id="{{item.bussinessId}}">
+              <text class="switch-txt">切换门店</text>
+              <image class="switch-img" src="./images/switch-store-back-icon.png"></image>
+            </view>
+          </view>
+          <view class="time-box">
+            <text class="time-label">营业时间 </text>
+            <text class="time-val">{{item.tenantBussinessHours}}</text>
+          </view>
+          <view class="label-box">
+            <text class="label-item" wx:for="{{item.tenantMainBusiness}}" wx:key="unique" wx:for-item="labelItem" wx:if="{{labelItem && labelItem!='null'}}">{{labelItem}}</text>
+          </view>
+          <view class="address" wx:if="{{item.tenantDetailedAddress&&item.tenantDetailedAddress!='null'}}">
+            <image class="address-img" src="./images/small-local-icon.png"></image>
+            <text class="address-info">{{item.tenantDetailedAddress}}</text>
+          </view>
+          <view class="phone"  wx:if="{{item.tenantAppointmentPhone && item.tenantAppointmentPhone!='null'}}">
+            <image class="address-img" src="./images/small-phone-icon.png"></image>
+            <text class="phone-info">{{item.tenantAppointmentPhone}}</text>
+          </view>
+        </view>
+        <view class="load-finish" wx:if="{{isLoaded}}">—— 已加载全部内容 ——</view>
+        <!-- <view style="width:100%;height:100px;"  wx:if="{{isLoaded && dataList.length>=0}}"></view> -->
+      </scrollView>
+      </view>
+  </view>
+</view>
+<confirmMask bindconfirm="handleToStore"></confirmMask>
+<loading></loading>

@@ -1,0 +1,44 @@
+/* pages/couponCenter/index.wxss */
+.no-data{
+  text-align: center;
+}
+.no-data .img{
+  margin-top: 258rpx;
+  width: 228rpx;
+  height: 228rpx;
+  margin-bottom: 18rpx;
+}
+.no-data .text{
+  height: 40rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #292522;
+  line-height: 40rpx;
+  text-shadow: 0 8rpx 24rpx rgba(219, 230, 255, 0.4);
+}
+.list{
+  padding: 0 24rpx;
+  padding-top: 24rpx;
+  padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+}
+
+.status-tips{
+  padding-top: 16rpx;
+  padding-bottom: calc((env(safe-area-inset-bottom) / 2) + 40rpx);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.status-tips .text{
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #CCC8C4;
+  margin: 0 16rpx;
+}
+.status-tips .line{
+  width: 48rpx;
+  height: 2rpx;
+  background: #CCC8C4;
+}

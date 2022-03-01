@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText":"确认订单",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "comSubmitOrder":"./../../components/comSubmitOrder",
+    "comReceiving":"./../../components/comReceivingInfo",
+    "comStore":"./../../components/comStoreInfo",
+    "comCar":"./../../components/comCarInfo",
+    "comPayMethod":"./../../components/comPayMethodInfo",
+    "comNav":"./../../components/comTopNav/index",
+    "comCouponBottomMask":"./../../components/comCouponBottomMask/index",
+    "couponItem":"./components/couponItem/index",
+    "loading":"./../../components/loading/index"
+  }
+}

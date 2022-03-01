@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "comCarKey":"./components/comCarKey",
+    "comLetterKey":"../comLetterKey/index"
+  }
+}

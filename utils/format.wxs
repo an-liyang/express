@@ -1,0 +1,27 @@
+/* 封装一个格式转换的方法 */
+function formatValue(value,type) {
+  if(value===0){
+    value = '0'
+  }
+  // 如果为ture，需要进行四舍五入,保留两位小说
+  if(type){
+    value=value.toFixed(2)
+  }
+  // 数字类型需要转化为字符串
+  value = value+''
+  if(value){
+    value = value.split('.')
+  }
+  return value
+}
+
+var dealDate = function(val) {
+  if(val && val.indexOf('-') != -1){
+    return val.split('-').join('.')
+  }
+}
+
+module.exports={
+  dealDate: dealDate,
+  formatValue: formatValue
+}; 

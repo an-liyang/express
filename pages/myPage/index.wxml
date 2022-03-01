@@ -1,0 +1,50 @@
+<!--pages/myPage/index.wxml-->
+<view class="my-box">
+  <!-- <comNav vTitle="我的" curPageName="myPage"></comNav> -->
+<view class="my-box-inner">
+  <view class="login-info">
+    <view class="left-box">
+      <image class="left-user-img" src="{{centerInfoData.headImage?centerInfoData.headImage:'http://img1.bitauto.com/das/chehou_sass/sass_wx/user-icon.png'}}"></image>
+      <view wx:if="{{centerInfoData.nickName||centerInfoData.headImage}}">
+        <view class="login-user">{{centerInfoData.nickName}}</view>
+        <view class="login-phone" wx:if="{{centerInfoData.wechatPhone}}">{{centerInfoData.wechatPhone}}</view>
+      </view>
+      <view wx:else class="login-status">未登录</view>
+    </view>
+    <view wx:if="{{!centerInfoData.wechatPhone}}" class="login-btn" bindtap="getUserProfile">授权登录</view>
+  </view>
+  <view class="order-info">
+    <view class="order-head">
+      <view class="order-title">我的订单</view>
+      <view class="order-total" bindtap="handleToOrderList" data-type="total">
+        全部订单
+        <image class="arrow mgl8" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/to-right-arrow.png"></image>
+      </view>
+    </view>
+    <view class="order-main">
+      <view class="order-item" wx:for="{{orderModule}}" wx:key="unique" data-type="{{item.type}}" bindtap="handleToOrderList">
+        <image class="order-item-img" src="{{item.img}}"></image>
+        <view class="num-icon" wx:if="{{centerInfoData.unPaidOrderCount && item.txt=='待支付'}}">{{centerInfoData.unPaidOrderCount>99?'99+':centerInfoData.unPaidOrderCount}}</view>
+        <view class="num-icon" wx:if="{{centerInfoData.unServOrderCount && item.txt=='待服务'}}">{{centerInfoData.unServOrderCount>99?'99+':centerInfoData.unServOrderCount}}</view>
+        <view class="order-item-desc">{{item.txt}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="store-info" wx:if="{{storeInfo.tenantName!=null}}">
+    <view class="store-title">{{storeInfo.tenantName}}</view>
+    <view class="store-time">营业时间 {{storeInfo.tenantBussinessHours}}</view>
+    <view class="store-label-box">
+      <view class="store-label-item" wx:for="{{storeInfo.tenantMainBusiness}}" wx:key="unique" wx:if="{{item && item!='null'}}">{{item}}</view>
+    </view>
+    <view class="store-adress">
+      <view class="store-adress-info" wx:if="{{storeInfo.tenantDetailedAddress && storeInfo.tenantDetailedAddress!='null'}}">{{storeInfo.tenantDetailedAddress}}</view>
+      <view class="store-adress-img-box">
+        <image  wx:if="{{storeInfo.tenantDetailedAddress && storeInfo.tenantDetailedAddress!='null'}}" class="store-adress-img-local" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/locationi-icon.png" bindtap='gotoMap'></image>
+        <image class="store-adress-img-phone" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/phone-icon.png" bindtap="handleToCall"></image>
+      </view>
+    </view>
+  </view>
+  <entryList centerInfoData="{{centerInfoData}}"></entryList>
+</view>
+</view>
+<authPhone wx:if="{{$state.isTipMask==true}}" bindupdatePageFunc="hupdatePageFunc"></authPhone>

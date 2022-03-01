@@ -1,0 +1,14 @@
+<!--pages/orderDetail/components/comStoreInfo/index.wxml-->
+<view class="store-info {{isNoShadow?'store-info-noShadow':''}}"  wx:if="{{objData.tenantName!=null}}">
+  <view class="store-name">{{objData.tenantName?objData.tenantName:''}}</view>
+  <view class="store-time">营业时间
+    <text class="time">{{objData.tenantBussinessHours?objData.tenantBussinessHours:''}}</text>
+  </view>
+  <view class="address-box">
+    <view class="address-info" wx:if="{{objData.tenantDetailedAddress && objData.tenantDetailedAddress!='null'}}">{{objData.tenantDetailedAddress?objData.tenantDetailedAddress:''}}</view>
+    <view class="address-img-box">
+      <image class="address-local" wx:if="{{objData.tenantDetailedAddress && objData.tenantDetailedAddress!='null'}}" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/locationi-icon.png" bindtap='gotoMap'></image>
+      <image class="address-phone" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/phone-icon.png" bindtap="handleToCall"></image>
+    </view>
+  </view>
+</view>

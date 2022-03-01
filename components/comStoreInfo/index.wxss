@@ -1,0 +1,76 @@
+/* pages/orderDetail/components/comStoreInfo/index.wxss */
+.store-info{
+  width:100%;
+  padding:26rpx 24rpx 22rpx 24rpx;
+  height: 224rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 8rpx 24rpx 0rpx rgba(41, 37, 34, 0.02);
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  margin-top:24rpx;
+}
+.store-info-noShadow{
+  box-shadow: none;
+}
+.store-name{
+  height: 44rpx;
+  font-size: 32rpx;
+  font-family: 'PingFangSC-Bold, PingFang SC';
+  font-weight: bold;
+  color: #292522;
+  line-height: 44rpx;
+  text-align:left;
+  margin-bottom:4rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.store-time{
+  height: 34rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #A3A09D;
+  line-height: 34rpx;
+  text-align:left;
+  margin-bottom:26rpx;
+}
+.time{
+
+}
+.address-box{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.address-info{
+  width:calc( 100% - 200rpx );
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #5C5A58;
+  line-height: 34rpx;
+  overflow: hidden;
+  /* text-overflow:ellipsis; 
+  white-space: nowrap; */
+  /* 20210701版本一行改为两行 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.address-img-box{
+  width:200rpx;
+  display:flex;
+  justify-content:flex-end;
+  align-items: center;
+}
+.address-local{
+  width:64rpx;
+  height:64rpx;
+  margin-right:32rpx;
+}
+.address-phone{
+  width:64rpx;
+  height:64rpx;
+}

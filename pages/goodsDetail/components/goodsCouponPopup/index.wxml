@@ -1,0 +1,23 @@
+<!--pages/goodsDetail/components/goodsAvaCoupon/index.wxml-->
+<comCouponBottomMask isShowMask="{{false}}" isShowNoData="{{$state.goodsAvaCouponListData.length<=0}}">
+  <scroll-view style='height:calc(100vh - 552rpx - (env(safe-area-inset-bottom) / 2))' scroll-y="true" bindscrolltolower="loadMore">
+    <couponListItem 
+    couponItem="{{item}}" 
+    spuId="{{spuId}}"
+    skuId="{{skuId}}"
+    wx:for="{{$state.goodsAvaCouponListData}}" 
+    wx:key="index" 
+    bind:receiveChange="receiveChange" 
+    isCallBack="{{true}}" 
+    bind:isReRequest="isReRequest"></couponListItem>
+    <view class="status-tips" wx:if="{{$state.goodsAvaCouponListData.length>0}}">
+      <text class="line"></text>
+      <view class="text">
+        <text wx:if="{{$state.isMoreCoupon}}">上滑加载更多</text> 
+        <text wx:else>已加载全部内容</text>
+      </view>
+      <text class="line"></text>
+    </view>
+  </scroll-view>
+  <!--  style='height:calc(100vh - {{scrollH}}px)' -->
+</comCouponBottomMask>

@@ -1,0 +1,20 @@
+<!--components/comTopNav/index.wxml-->
+<view class="custom_nav" style="height:{{navbarHeight}}rpx;background-color:{{$state.navBkgColor}}">
+  <view class="custom_nav_box" style="height:{{navbarHeight}}rpx;background-color:{{$state.navBkgColor}}">
+    <view class="custom_nav_bar" style="top:{{statusBarHeight}}rpx; height:{{cusnavH}}rpx;">
+        <view wx:if="{{curPageName!='servicePage'&&curPageName!='myPage'&&curPageName!='successPay'}}" style="height:{{cusnavH}}rpx; line-height:{{cusnavH}}rpx;width:100%;box-sizing:border-box;">
+          <view wx:if="{{haveBack}}" class="icon-back" bindtap='handleGoBack'>
+            <image src='{{$state.navBackIcon}}' mode='aspectFill' class='back-pre'></image>
+          </view>
+          <view wx:else class="icon-home">
+            <navigator class="icon-back" url="/pages/servicePage/index" open-type="switchTab">
+              <image src='{{$state.navHomeIcon}}' mode='aspectFill' class='back-home'></image>
+            </navigator>
+          </view>
+        </view>
+        <view class="nav_title" style="height:{{cusnavH}}rpx; line-height:{{cusnavH}}rpx;color:{{$state.navFontColor}}">
+          {{vTitle}}
+        </view>
+    </view>
+  </view>
+</view>

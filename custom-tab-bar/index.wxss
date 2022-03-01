@@ -1,0 +1,39 @@
+/* custom-tab-bar/index.wxss */
+.tab-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  /* width: calc(100% - 320rpx); */
+  width: 100%;
+  height: 100rpx;
+  background: #FFFFFF;
+  box-shadow: 0 -4rpx 16rpx 0 rgba(41, 37, 34, 0.02);
+  border-radius: 40rpx 40rpx 0 0;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 0 160rpx; */
+  /* box-sizing: border-box; */
+  padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+}
+.tab-bar-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.tab-bar-item:first-child{
+  margin-left: 160rpx;
+}
+.tab-bar-item:last-child{
+  margin-right: 160rpx;
+}
+.image {
+  width: 54rpx;
+  height: 54rpx;
+  margin-top: 10rpx;
+}
+.tab-bar-item .tab-bar-text {
+  margin-top: 4rpx;
+  font-size: 20rpx;
+}
+

@@ -1,0 +1,58 @@
+/* pages/orderDetail/index.wxss */
+.order-detail{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  background: #F7F7F9;
+  position:relative;
+  z-index:0;
+}
+.order-detail-outer{
+  width:100%;
+  min-height: 90vh;
+  background: #F7F7F9;
+  position:relative;
+  z-index:0;
+  padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+}
+.order-detail-main{
+  width:100%;
+  padding:0rpx 24rpx 136rpx 24rpx;
+  box-sizing: border-box;
+}
+.order-detail-main-nofooter{
+  padding-bottom: 24rpx;
+}
+.order-detail-head-bkg{
+  width:100%;
+  height:276rpx;
+  position:absolute;
+  top:0px;
+  background:#FF7700;
+  z-index:-1;
+}
+.no-order{
+  min-height: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center;
+  /* background: #F7F7F9; */
+}
+.no-order-img{
+width:228rpx;
+height:228rpx;
+margin-bottom:18rpx;
+}
+.no-order-txt{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #292522;
+  line-height: 40rpx;
+  /* text-shadow: 0rpx 8rpx 24rpx rgba(219, 230, 255, 0.4); */
+}

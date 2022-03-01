@@ -1,0 +1,22 @@
+{
+  "navigationBarTitleText":"订单详情",
+  "navigationBarBackgroundColor":"#FF7700",
+  "backgroundColor":"#FF7700",
+  "backgroundColorBottom":"#ffffff",
+  "backgroundColorTop":"#FF7700",
+  "navigationBarTextStyle":"white",
+  "usingComponents": {
+    "comOrderStatus":"./components/comOrderStatusInfo",
+    "comPerson":"./components/comPersonInfo",
+    "comReceiving":"./../../components/comReceivingInfo",
+    "comStore":"./../../components/comStoreInfo",
+    "comCar":"./../../components/comCarInfo",
+    "comOrder":"./components/comOrderInfo",
+    "comPayMethod":"./../../components/comPayMethodInfo",
+    "comAfterSalses":"./components/comAfterSalesInfo",
+    "comShopDecoration":"./components/comShopDecorationInfo",
+    "comVerificationCode":"./components/comVerificationCodeInfo",
+    "comNav":"./../../components/comTopNav/index",
+    "loading":"./../../components/loading/index"
+  }
+}

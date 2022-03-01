@@ -1,0 +1,318 @@
+<!--pages/goodsDetail/index.wxml-->
+<comNav vTitle="商品详情" curPageName="goodsDetail"></comNav>
+<!-- 引入格式化函数 -->
+<wxs src="../../utils/format.wxs" module="fn"></wxs>
+<wxs module="dealDataFunc">
+// 处理商品属性-净厚度数值显示
+var dealPorpsData=function(item){
+ if(item.natureCnName && item.natureCnName=='净厚度' && item.natureValues){
+   var getVal=item.natureValues.toString().split('.') || []
+   if(!getVal[1]){
+    getVal[1]=0
+   }
+   if(getVal[1]>0 && getVal[1]<5){
+      getVal[1]=5
+   }else if(getVal[1]>5 && getVal[1]<=9){
+    getVal[0]=getVal[0]*1+1
+    getVal[1]=0
+   }
+   return getVal.join('.')
+ }else{
+  return item.natureValues?item.natureValues:'- -'
+ }
+}
+module.exports = {
+  dealFunc : dealPorpsData,
+}
+</wxs>
+<loading></loading>
+<view class="goods-detail" wx:if="{{isRequsted}}">
+  <!-- 商品主图 -->
+  <view class="goods-main-img">
+    <view wx:if="{{goodsInfo.spuImages.length>0}}" class="swiper-box">
+      <swiper circular="true" class="swiper" bindchange="bindchange">
+        <block wx:for="{{goodsInfo.spuImages}}" wx:key="index">
+          <swiper-item bindtap="previewImg" data-img="{{item}}" data-list="{{goodsInfo.spuImages}}"> 
+            <image src="{{item?item:'http://img1.bitauto.com/das/chehou_sass/sass_wx/no-main-icon.png'}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="swiper-item-num" wx:if="{{goodsInfo.spuImages.length>1}}">
+        <text class="current">{{currentImg}}</text>
+        <text class="total">/</text>
+        <text class="total">{{goodsInfo.spuImages.length}}</text>
+      </view>
+    </view>
+    <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/no-main-icon.png" wx:else></image>
+  </view>
+  <!-- 开始倒计时  0 开启 1不开启  上架类型 1长期 2非长期-->
+  <view class="goods-flash-sale" wx:if="{{goodsInfo.spuShelfTimeType==2&&goodsInfo.spuCountdownOpen==0&&isTimeCutShow}}">
+    <view>
+      <!-- 商品类型 1免费 2收费 （限时标签） -->
+      <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/limit-icon.png" class="limit-img" wx:if="{{goodsInfo.spuType==2}}"></image>
+      <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/limit-free-icon.png" class="limit-img" wx:else ></image>
+    </view>
+    <view class="price">
+      <view class="price-num-sold">
+        <view class="current-price" wx:if="{{goodsInfo.defaultSkuInfo.skuSalesPrice||goodsInfo.defaultSkuInfo.skuSalesPrice===0}}">
+          <text class="price-unit">￥</text>
+          <text class="price-int">{{fn.formatValue(goodsInfo.defaultSkuInfo.skuSalesPrice)[0]}}</text>
+          <text wx:if="{{fn.formatValue(goodsInfo.defaultSkuInfo.skuSalesPrice)[1]}}">.</text>
+          <text class="price-float">{{fn.formatValue(goodsInfo.defaultSkuInfo.skuSalesPrice)[1]}}</text>
+        </view>
+        <view class="num-sold" wx:if="{{goodsInfo.spuType==2}}">已售{{goodsInfo.defaultSkuInfo.saleCount<=9999?goodsInfo.defaultSkuInfo.saleCount:'9999+'}}</view>
+        <view class="num-sold" wx:if="{{goodsInfo.spuType==1}}">已报名{{goodsInfo.defaultSkuInfo.saleCount<=9999?goodsInfo.defaultSkuInfo.saleCount:'9999+'}}</view>
+      </view>
+      <view class="original-price" wx:if="{{goodsInfo.defaultSkuInfo.skuSalesOldPrice}}">
+        <text>￥</text>
+        <text>{{goodsInfo.defaultSkuInfo.skuSalesOldPrice}}</text>
+      </view>
+    </view>
+    <view class="time-count-down">
+      <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/time-icon.png" class="time-count-img"></image>
+      <view class="time-count-text">
+        <view class="title">距离结束</view>
+        <view>
+          <van-count-down use-slot time="{{ time }}"  bind:change="onChange" wx:if="{{isDays}}">
+            <text class="time-item days">{{ timeData.days>=10?timeData.days:'0'+timeData.days }}</text>
+            <text class="time-unit">天</text>
+          </van-count-down>
+          <van-count-down use-slot time="{{ time }}"  bind:change="onChange" wx:else>
+            <text class="time-item">{{ timeData.hours>=10?timeData.hours:'0'+timeData.hours }}</text>
+            <text class="spot-item">:</text>
+            <text class="time-item">{{ timeData.minutes>=10?timeData.minutes:'0'+timeData.minutes }}</text>
+            <text class="spot-item">:</text>
+            <text class="time-item">{{ timeData.seconds>=10?timeData.seconds:'0'+timeData.seconds }}</text>
+          </van-count-down>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品基本信息 -->
+  <view class="detail-box goods-info-base {{(goodsInfo.spuCountdownOpen!=0||!isTimeCutShow)?'goods-info-base-no-limit':''}}">
+    <!-- 商品类型 1免费 2收费 （限时标签） -->
+    <view class="price-no-limit" wx:if="{{goodsInfo.spuCountdownOpen!=0||!isTimeCutShow}}">
+      <view class="current-price" wx:if="{{goodsInfo.defaultSkuInfo.skuSalesPrice||goodsInfo.defaultSkuInfo.skuSalesPrice===0}}">
+        <text class="price-unit">￥</text>
+        <text class="price-int">{{fn.formatValue(goodsInfo.defaultSkuInfo.skuSalesPrice)[0]}}</text>
+        <text wx:if="{{fn.formatValue(goodsInfo.defaultSkuInfo.skuSalesPrice)[1]}}">.</text>
+        <text class="price-float">{{fn.formatValue(goodsInfo.defaultSkuInfo.skuSalesPrice)[1]}}</text>
+      </view>
+      <view class="original-price" wx:if="{{goodsInfo.defaultSkuInfo.skuSalesOldPrice}}">
+        <text>￥</text>
+        <text>{{goodsInfo.defaultSkuInfo.skuSalesOldPrice}}</text>
+      </view>
+      <view class="num-sold" wx:if="{{goodsInfo.spuType==2}}">已售{{goodsInfo.defaultSkuInfo.saleCount<=9999?goodsInfo.defaultSkuInfo.saleCount:'9999+'}}</view>
+      <view class="num-sold" wx:if="{{goodsInfo.spuType==1}}">已报名{{goodsInfo.defaultSkuInfo.saleCount<=9999?goodsInfo.defaultSkuInfo.saleCount:'9999+'}}</view>
+    </view>
+    <view class="goods-share" bindtap="handleShare">
+      <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/share-icon.png" class="share-img"></image>
+      <text class="share-text">分享</text>
+    </view>
+    <view class="goods-title">{{goodsInfo.spuTitle}}</view>
+    <view class="goods-desc">{{goodsInfo.spuDes}}</view>
+    <view class="goods-tags">
+      <text wx:for="{{goodsInfo.spuLabels}}" wx:key="index">{{item}}</text>
+    </view>
+  </view>
+  <!-- 商品优惠券 -->
+  <view class="detail-box" wx:if="{{goodsInfo.spuType==2&&goodsAvaCouponLabelData.length>0}}" bindtap="toRecived">
+    <goodsCoupon listData="{{goodsAvaCouponLabelData}}"></goodsCoupon>
+  </view>
+  <!-- 商品规格 -->
+  <view class="detail-box goods-specifications">
+    <view class="item specifications-item" wx:if="{{goodsInfo.skuInfoList.length>=1&&goodsInfo.spuSource==1}}" bindtap="selectSpecifications">
+      <text class="label">规格</text> 
+      <text class="info info-left">{{goodsInfo.defaultSkuInfo.skuSalesSpecifications}}</text>
+      <text class="info">，1件</text>
+      <view class="more">
+        <text class="remain" wx:if="{{goodsInfo.defaultSkuInfo.skuReleaseCount<100}}">仅剩{{goodsInfo.defaultSkuInfo.skuReleaseCount}}</text>
+        <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/arrow-right-icon.png" class="more-icon"></image>
+      </view>
+    </view>
+    <view class="item">
+      <text class="label">发货</text> 
+      <text class="info">{{goodsInfo.spuReceivingWay==0?"到店安装":''}}</text>
+    </view>
+  </view>
+  <!-- 店铺信息 -->
+  <view class="store-info" style="margin-bottom: 24rpx">
+    <comStore objData="{{$state.storeInfo}}"></comStore>
+  </view>
+  <!-- 商品详情 -->
+  <view class="detail-box goods-info-detail clearfix" id="goods-detail">
+    <rich-text nodes="{{goodsInfo.spuSalesContext}}"></rich-text>
+  </view>
+  <!-- 服务保障 -->
+  <!-- 无忧保障开关 1开启 2不开启 -->
+  <view class="detail-box service-ensure" wx:if="{{goodsInfo.spuGuaranteeShow==1}}">
+    <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/detail.png"></image>
+  </view>
+  <!-- 商品属性 -->
+  <!-- spuSource 商品来源  0 门店商品  1 推荐商品 -->
+  <view class="detail-box goods-params-attr" wx:if="{{goodsInfo.spuSource==1}}">
+    <view class="title">规格参数</view>
+    <view class="goods-params">
+      <view class="item-title">商品参数</view>
+      <view class="item-content">
+        <text class="left">包装尺寸/长(cm)</text>
+        <text class="right">{{goodsInfo.spuSalesLong}}</text>
+      </view>
+      <view class="item-content">
+        <text class="left">包装尺寸/宽(cm)</text>
+        <text class="right">{{goodsInfo.spuSaleWide}}</text>
+      </view>
+      <view class="item-content">
+        <text class="left">包装尺寸/高(cm)</text>
+        <text class="right">{{goodsInfo.spuSaleHigh}}</text>
+      </view>
+      <view class="item-content">
+        <text class="left">包装重量(kg)</text>
+        <text class="right">{{goodsInfo.spuSalesWeight}}</text>
+      </view>
+      <view class="item-content">
+        <text class="left">包装清单</text>
+        <text class="right">{{goodsInfo.spuSalesListing}}</text>
+      </view>     
+      <view class="item-content">
+        <text class="left">保质期</text>
+        <text class="right">{{goodsInfo.spuSalesQuality}}</text>
+      </view>      
+      <view class="item-content">
+        <text class="left">产地</text>
+        <text class="right">{{goodsInfo.spuSalesProduct}}</text>
+      </view>
+    </view>  
+    <view class="goods-attr" wx:if="{{goodsInfo.spuNatures.length>=1}}">
+      <view class="item-title">商品属性</view>
+      <view class="item-content" wx:for="{{goodsInfo.spuNatures}}" wx:key="index">
+        <text class="left">{{item.natureCnName?item.natureCnName:''}}</text>
+        <!-- {{item.natureValues?item.natureValues:''}} -->
+        <text class="right">{{dealDataFunc.dealFunc(item)}}{{item.natureUnit?item.natureUnit:''}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 用户须知 -->
+  <view class="detail-box user-rights" wx:if="{{goodsInfo.spuUserInstruct}}">
+    <view class="title">用户须知</view>
+    <view class="text">{{goodsInfo.spuUserInstruct}}</view>
+  </view>
+  <!-- 售后服务 -->
+  <view class="detail-box service-sold" wx:if="{{goodsInfo.spuSalesService}}">
+    <view class="title">售后承诺</view>
+    <view class="text">{{goodsInfo.spuSalesService}}</view>
+  </view>
+  <!-- 底部按鈕 -->
+  <view class="goods-info-footer">
+    <view wx:if="{{goodsInfo.isEffective=='Y'}}" class="has-schedule">
+      <view class="phone-service" bindtap="handleToCall">
+        <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/ear-phone-icon.png" class="phone-icon"></image>
+        <view class="phone-text">联系门店</view>
+      </view>
+      <view>
+        <view class="buy-btn" wx:if="{{isHasGoods}}" bindtap="handleToBuy">
+          <!-- 	商品类型 1免费 2收费 （限时标签） -->
+          <text wx:if="{{goodsInfo.spuType==2}}">立即购买</text>
+          <text wx:else>报名抢购</text>
+        </view>
+        <view class="buy-btn null" wx:else>
+          <text>抢光了</text>
+        </view>
+      </view>
+    </view>
+    <view wx:else class="no-schedule">
+      店铺装修中
+    </view>
+  </view>
+  <!-- 底部占位 -->
+  <view class="footer-placeholder"></view>
+  <!-- 回到顶部 -->
+  <view class="to-top" wx:if="{{isShowTop}}" bindtap="toTop">
+    <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/arrow-up-icon.png" class="to-top-icon"></image>
+    <text class="to-top-text">顶部</text>
+  </view>
+  <!-- 多规格选择弹框 -->
+  <van-popup
+    duration='320'
+    catchtouchmove='true'
+    show="{{ isShowSelet }}"
+    round
+    position="bottom"
+    overlay-style="background: rgba(41, 37, 34, 0.5);"
+    bind:close="closeSpecifications">
+    <view class="select-specifications-header">
+      <view class="select-specifications-base">
+        <image 
+        src="{{goodsInfo.spuImages[0]?goodsInfo.spuImages[0]:'http://img1.bitauto.com/das/chehou_sass/sass_wx/no-small-icon.png'}}" 
+        class="select-specifications-img" 
+        bindtap="previewImgOne" 
+        data-img="{{goodsInfo.spuImages[0]}}"></image>
+        <view class="select-specifications-price">
+          <view class="current-price" wx:if="{{isSelectObj.skuSalesPrice||isSelectObj.skuSalesPrice===0}}">
+            <text class="price-unit">￥</text>
+            <text class="price-int">{{fn.formatValue(isSelectObj.skuSalesPrice)[0]}}</text>
+            <text wx:if="{{fn.formatValue(isSelectObj.skuSalesPrice)[1]}}">.</text>
+            <text class="price-float">{{fn.formatValue(isSelectObj.skuSalesPrice)[1]}}</text>
+          </view>
+          <view class="original-price" wx:if="{{isSelectObj.skuSalesOldPrice}}">
+            <text>￥</text>
+            <text>{{isSelectObj.skuSalesOldPrice}}</text>
+          </view>
+        </view>
+        <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/close-icon.png" class="close-icon"  bindtap="closeSpecifications"></image>
+      </view>
+      <view class="select-specifications-list">
+        <view class="title">商品规格</view>
+        <view class="content">
+          <text class="item {{isSelectName==item.skuSalesSpecifications?'item-active':''}}"
+          wx:for="{{goodsInfo.skuInfoList}}" 
+          wx:key="index" 
+          bindtap="handleTrigger" 
+          data-name="{{item.skuSalesSpecifications}}"
+          data-obj="{{item}}">{{item.skuSalesSpecifications}}</text>
+        </view>
+      </view>
+      <view class="select-specifications-num">
+        <view>
+          <text class="buy-num">购买数量</text>
+          <text>
+            <text class="goods-num" wx:if="{{isSelectObj.skuReleaseCount>0}}">库存{{isSelectObj.skuReleaseCount}}件</text>
+            <text class="goods-num" wx:else>无货</text>
+          </text>
+        </view>
+        <view>
+          <image class="operate-icon" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/cutdown-icon.png"></image>
+          <text class="selected-num">1</text>
+          <image class="operate-icon" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/increase-icon.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="footer-btn">
+      <view class="btn" wx:if="{{isSelectObj.skuReleaseCount>0}}" bindtap="confirmSpecifications">
+        <text>确定</text>
+      </view>
+      <view class="btn null" wx:else>
+        <text>抢光了</text>
+      </view>
+    </view>
+  </van-popup>
+  <!-- 商品校验弹框 -->
+  <comTips show="{{isShowTip}}" msg="{{msg}}" bind:onClose="onClose"></comTips>
+</view>
+<comShare wx:if="{{isShareShow}}" isShareShow="{{isShareShow}}" bindhandleHideShareMask="handleHideShareMask" getItemInfo="{{goodsInfo}}" getImgUrl="{{goodsInfo.spuImages[0]}}" getQrCodeUrl="{{getQrCodeUrl}}">
+  <view class="share-bot-btn-item">
+    <button open-type="share" class="share-button">
+      <image class="save-img" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/share_friend_icon.png"></image>
+      <view>分享给好友</view>
+    </button>
+  </view>
+</comShare>
+<!-- canvas画布-->
+<view style="width:0;height:0;overflow: hidden;opacity:0;position:absolute;left:-750px;top:0;">
+  <canvas canvas-id="myCanvas" id='my-canvas' style="width:295px;height:472px;position: fixed;top: -10000px;"></canvas>
+</view>
+<!-- 电话授权 -->
+<authPhone wx:if="{{$state.isTipMask==true}}" bindupdatePageFunc="updatePageFunc"></authPhone>
+<!-- 优惠券弹框 -->
+<goodsCouponPopup wx:if="{{$state.isShowCouponMask}}" skuId="{{isSelectObj.skuId}}" spuId="{{goodsInfo.spuId}}" id="GoodsAvaCoupon"></goodsCouponPopup>
+

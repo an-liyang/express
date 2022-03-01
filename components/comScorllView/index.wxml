@@ -1,0 +1,18 @@
+<!--components/comScorllView/index.wxml-->
+<!-- margin-top:{{$state.topNavHeight}} -->
+<!--   refresher-default-style="white"
+  refresher-background="lightgreen" -->
+  <!-- {{$state.topNavHeight}} -->
+  <!--  refresher-threshold="{{100}}" -->
+  <!-- 1100 -->
+<scroll-view
+  scroll-y style="width: 100%; height:calc(100vh - (env(safe-area-inset-bottom) / 2));margin-top:0rpx;"
+  refresher-enabled="{{true}}"
+  upper-threshold="{{50}}"
+  lower-threshold="{{20}}"
+  refresher-triggered="{{triggered}}"
+  bindrefresherrefresh="onRefresh"
+  bindscrolltolower="onBottmRefresh"
+>
+<slot></slot>
+</scroll-view>

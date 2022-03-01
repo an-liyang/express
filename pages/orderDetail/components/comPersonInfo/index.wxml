@@ -1,0 +1,22 @@
+<!--pages/orderDetail/components/comPersonInfo/index.wxml-->
+<view class="person-info">
+<view class="person-info-head">个人信息</view>
+<view class="person-info-main">
+<view class="person-info-item">
+<view class="person-info-item-key">姓名</view>
+<view class="person-info-item-val">{{$state.orderDetailData.userName}}</view>
+</view>
+<view class="person-info-item">
+<view class="person-info-item-key">手机号码</view>
+<view class="person-info-item-val">{{$state.orderDetailData.orderPhone}}</view>
+</view>
+<view class="person-info-item">
+<view class="person-info-item-key">车牌号</view>
+<view class="person-info-item-val">{{$state.orderDetailData.orderCarNo?$state.orderDetailData.orderCarNo:'- -'}}</view>
+</view>
+<view class="remark-info-item">
+<view class="person-info-item-key">备注</view>
+<view class="remark-info-val">{{$state.orderDetailData.orderRemark?$state.orderDetailData.orderRemark:'- -'}}</view>
+</view>
+</view>
+</view>

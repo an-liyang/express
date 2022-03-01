@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "comTips":"./components/comTipsPopup",
+    "comShare":"./components/shareMask",
+    "comStore":"./../../components/comStoreInfo",
+    "comNav":"./../../components/comTopNav/index",
+    "authPhone": "./../../components/authPhoneTip/index",
+    "loading":"./../../components/loading/index",
+    "goodsCoupon":"./components/goodsCoupon",
+    "goodsCouponPopup":"./components/goodsCouponPopup"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "商品详情",
+  "backgroundColor":"#FFFFFF"
+}

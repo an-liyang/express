@@ -1,0 +1,51 @@
+<!--component/index.wxml-->
+<!-- 引入格式化函数 -->
+<wxs src="../../utils/format.wxs" module="fn"></wxs>
+<view class="list-item">
+  <view class="item-left">
+    <image class="img" src="{{item.imageUrl?item.imageUrl:'http://img1.bitauto.com/das/chehou_sass/sass_wx/no-img-icon.png'}}" mode="widthFix"></image>
+    <!-- 无忧保障开关 1开启 2不开启 -->
+    <image class="item-carefree-tips" wx:if="{{item.spuGuaranteeShow==1}}" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/carefree-icon.png" mode="widthFix"></image>
+    <!-- 是否有排期（1是 0否） -->
+    <view class="no-schedule" wx:if="{{item.isSchedule==0}}">
+      <view class="text">店铺</view>
+      <view class="text">装修中</view>
+    </view>
+    <!-- 有排期并且无货  是否有货（1是 0否） -->
+    <view class="no-goods" wx:if="{{item.isSchedule==1&&item.isStore==0}}">
+      <view class="text">抢光了</view>
+    </view>
+  </view>
+  <view class="item-right">
+    <view>
+      <view class="title ellipsis">{{item.spuTitle}}</view>
+      <view class="desc ellipsis">{{item.spuDes}}</view>
+      <view class="type-tag" wx:if="{{item.spuType=='1'}}"><text class="text">报名商品</text></view>
+      <view class="coupon-tag" wx:if="{{item.spuType=='2'}}">
+        <text class="text" wx:for="{{item.coupons}}" wx:key="index">{{item.showInfo}}</text>
+      </view>
+    </view>
+    <view>
+      <view class="price">
+        <view class="current-price">
+          <text class="price-unit">￥</text>
+          <text class="price-int">{{fn.formatValue(item.skuSalesPrice)[0]}}</text>
+          <text wx:if="{{fn.formatValue(item.skuSalesPrice)[1]}}">.</text>
+          <text class="price-float">{{fn.formatValue(item.skuSalesPrice)[1]}}</text>
+          <!-- 是否有多规格（1是 0否） -->
+          <text class="price-range" wx:if="{{item.isMultiSpecification==1}}">起</text>
+        </view>
+        <view class="original-price" wx:if="{{item.skuSalesOldPrice}}">
+          <text>￥</text>
+          <text>{{item.skuSalesOldPrice}}</text>
+          <text wx:if="{{item.skuSalesOldPrice&&item.isMultiSpecification==1}}">起</text>
+        </view>
+      </view>
+      <view class="num-sold" wx:if="{{item.salesVolume>0}}">
+        <!-- 商品类型 1免费 2收费	 -->
+        <text wx:if="{{item.spuType=='2'}}">已售{{item.salesVolume<=9999?item.salesVolume:'9999+'}}</text>
+        <text wx:else>已报名{{item.salesVolume<=9999?item.salesVolume:'9999+'}}</text>
+      </view>
+    </view>
+  </view>
+</view>

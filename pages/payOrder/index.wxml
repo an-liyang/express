@@ -1,0 +1,47 @@
+<!--pages/payOrder/index.wxml-->
+<comNav vTitle="确认订单" curPageName="payOrder"></comNav>
+<view class="no-data" wx:if="{{$state.isCurNoNetwork}}">
+  <image class="no-data-img" src="./../../images/no-network.png"></image>
+  <text class="no-data-desc">网络开小差了</text>
+  <view class="re-load" bindtap="reLoad" bindtap="reLoad">重新加载</view>
+</view>
+<block wx:else>
+<wxs src="../../utils/format.wxs" module="fn"></wxs>
+<view class="pay-order" bindtap="handleSubOrderPage">
+<!-- 表单信息 -->
+<comSubmitOrder id="letter"></comSubmitOrder>
+<!-- 收货方式 -->
+<comReceiving objData="{{$state.orderDetailData}}"></comReceiving>
+<!-- 店铺信息 -->
+<comStore objData="{{$state.orderDetailData}}"></comStore>
+<!-- 车信息 -->
+<comCar objData="{{$state.orderDetailData}}" status="-2"></comCar>
+<!-- 支付方式 -->
+<comPayMethod objData="{{$state.orderDetailData}}"></comPayMethod>
+<!-- button -->
+<view class="footer-btn-box">
+  <view class="current-price" wx:if="{{$state.orderDetailData.orderAmount}}">
+    <text class="price-unit">￥</text>
+    <text class="price-int">{{fn.formatValue($state.orderDetailData.orderAmount)[0]}}</text>
+    <text wx:if="{{fn.formatValue($state.orderDetailData.orderAmount)[1]}}">.</text>
+    <text class="price-float">{{fn.formatValue($state.orderDetailData.orderAmount)[1]}}</text>
+  </view>
+  <!-- <view class="footer-price active-footer-price">￥{{$state.orderDetailData.orderAmount}}</view> -->
+  <view class="{{$state.createOrderParams.userName && $state.createOrderParams.orderPhone ? 'footer-btn active-footer-btn':'footer-btn active-footer-btn un-active'}}" bindtap="handleCreatePayOrder">立即支付</view>
+</view>
+</view>
+<comCouponBottomMask wx:if="{{$state.isShowCouponMask}}" isShowNoData="{{$state.payOderCouponList.length<=0}}">
+  <scroll-view style='height:calc(100vh - 552rpx - (env(safe-area-inset-bottom) / 2))' scroll-y="true">
+  <view class="con-box">
+    <view style="margin-bottom:24rpx;" wx:for="{{$state.payOderCouponList}}" wx:key="unique">
+      <couponItem obj="{{item}}"></couponItem>
+    </view>
+  </view>
+  </scroll-view>
+   <!-- 底部确定按钮 -->
+   <view class="coupon-confirm" wx:if="{{$state.payOderCouponList && $state.payOderCouponList.length>0}}">
+      <view class="coupon-confirm-btn" bindtap="handleConfirmCoupon">确定</view>
+    </view>
+</comCouponBottomMask>
+</block>
+<loading></loading>

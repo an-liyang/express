@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "loading": "../../components/loading/index",
+    "comStore":"./../../components/comStoreInfo",
+    "couponDetailItem":"./components/couponDetailItem/index",
+    "authPhone": "./../../components/authPhoneTip/index"
+  },
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "优惠券详情",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#ffffff"
+}

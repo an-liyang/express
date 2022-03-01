@@ -1,0 +1,45 @@
+<!--components/comCouponBottomMask/index.wxml-->
+<!--{{$state.isShowCouponMask && isAnimation ? 'curr-block':'curr-hide'}}  -->
+<view style="display:{{$state.isShowCouponMask?'block':'none'}};" class="coupon-bottom-mask" catchtouchmove='true' bindtap="handleClose">
+  <view class="coupon-bottom-mask-con {{$state.isShowCouponMask && $state.isAnimation ? 'from-bottom-to-top':'from-top-to-bottom'}} {{isShowMask?'':'coupon-bottom-mask-con-nobtn'}}" catchtap="preventClick">
+    <view class="coupon-bottom-mask-head">
+      <view class="coupon-bottom-mask-title">优惠券</view>
+      <view class="coupon-bottom-mask-right">
+        <view wx:if="{{isShowMask}}" bindtap="clickShuoMing" class="coupon-bottom-mask-shuo-ming">使用说明</view>
+        <image wx:if="{{isShowMask}}" bindtap="clickShuoMing" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/coupon-shuoming-icon.png" class="coupon-bottom-mask-shuo-ming-icon"></image>
+        <image bindtap="handleClose" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/coupon-close-icon.png" class="coupon-bottom-mask-close"></image>
+      </view>
+    </view>
+    <view class="coupon-bottom-mask-con-list">
+      <slot></slot>
+    </view>
+    <view class="no-data" wx:if="{{isShowNoData}}">
+      <image class="no-data-img" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/no-coupon-icon.png"></image>
+      <view class="no-data-txt">暂无可用优惠券~</view>
+    </view>
+  </view>
+</view>
+<!-- 使用说明 -->
+<view class="shuo-ming-mask" wx:if="{{isShow}}">
+  <view class="shuo-ming-con">
+   <view class="shuo-ming-inner-con">
+    <view class="shuo-ming-title">使用说明</view>
+    <view class="shuo-ming-two-title">使用类型</view>
+    <view class="shuo-ming-desc">
+      1. 满减券：可用于抵扣具体店铺商品订单金额；
+    </view>
+    <view class="shuo-ming-desc">
+      2. 折扣券：可用于抵扣商品订单金额；
+    </view>
+    <view class="shuo-ming-two-title" style="margin-top:12rpx;">使用规则</view>
+    <view class="shuo-ming-desc">
+      每次下单只能使用一张优惠券；
+    </view>
+    <view class="shuo-ming-desc">
+      用券下单后，未支付成功导致订单关闭，不退还优惠券；
+    </view>
+    <view class="shuo-ming-btn" bindtap="clickShuoMing">我知道了
+    </view>
+   </view>
+  </view>
+</view>

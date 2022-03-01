@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText":"我的",
+  "navigationBarBackgroundColor": "#F7F7F9",
+  "usingComponents": {
+    "authPhone": "./../../components/authPhoneTip/index",
+    "comNav":"./../../components/comTopNav/index",
+    "entryList":"./components/entryList/index"
+  }
+}

@@ -1,0 +1,33 @@
+<!--component/index.wxml-->
+<!-- 引入格式化函数 -->
+<wxs src="../../../../utils/format.wxs" module="fn"></wxs>
+<view class="list-item">
+  <view class="item-left">
+    <image class="img" src="{{item.imageUrl?item.imageUrl:'http://img1.bitauto.com/das/chehou_sass/sass_wx/no-img-icon.png'}}" mode="widthFix"></image>
+  </view>
+  <view class="item-right">
+    <view>
+      <view class="title ellipsis">{{item.spuTitle}}</view>
+      <view class="coupon-tag">
+        <text class="text" wx:for="{{item.coupons}}" wx:key="index">{{item.showInfo}}</text>
+      </view>
+    </view>
+    <view>
+      <view class="price">
+        <view class="current-price">
+          <text class="price-unit">￥</text>
+          <text class="price-int">{{fn.formatValue(item.skuSalesPrice)[0]}}</text>
+          <text wx:if="{{fn.formatValue(item.skuSalesPrice)[1]}}">.</text>
+          <text class="price-float">{{fn.formatValue(item.skuSalesPrice)[1]}}</text>
+          <!-- 是否有多规格（1是 0否） -->
+          <text class="price-range" wx:if="{{item.isMultiSpecification==1}}">起</text>
+        </view>
+        <view class="original-price" wx:if="{{item.skuSalesOldPrice}}">
+          <text>￥</text>
+          <text>{{item.skuSalesOldPrice}}</text>
+          <text wx:if="{{item.skuSalesOldPrice&&item.isMultiSpecification==1}}">起</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

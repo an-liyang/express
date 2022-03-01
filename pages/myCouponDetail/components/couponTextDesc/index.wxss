@@ -1,0 +1,70 @@
+/* pages/myCouponDetail/components/couponTextDesc/index.wxss */
+.usage{
+  width:100%;
+}
+.desc{
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: bold;
+  color: #292522;
+  line-height: 44rpx;
+  text-align:left;
+  margin-bottom:8rpx;
+  margin-top:24rpx;
+}
+.usage-con{
+  width:100%;
+  padding-left:16rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #5C5A58;
+  line-height: 40rpx;
+  text-align:left;
+  margin-bottom:24rpx;
+}
+.desc-two{
+  display: inline-block;
+  width:100%;
+  padding-left:16rpx;
+  box-sizing: border-box;
+  margin-bottom:8rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: bold;
+  color: #292522;
+  line-height: 40rpx;
+  text-align:left;
+}
+.to-store-type-box{
+  width:100%;
+  padding-left:16rpx;
+  box-sizing: border-box;
+  display:flex;
+  justify-content: flex-start;
+  align-items:center;
+  margin-bottom:8rpx;
+}
+.to-store-type-item{
+  padding:4rpx 8rpx;
+  box-sizing: border-box;
+  background: rgba(51, 102, 255, 0.08);
+  border-radius: 4rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #3366FF;
+  margin-right:8rpx;
+}
+.notice-item{
+  width:100%;
+  padding-left:16rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #5C5A58;
+  line-height: 40rpx;
+  text-align:left;
+}

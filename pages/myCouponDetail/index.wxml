@@ -1,0 +1,27 @@
+<!--pages/myCouponDetail/index.wxml-->
+<view class="no-data" wx:if="{{$state.isCurNoNetwork}}">
+  <image class="no-data-img" src="./../../images/no-network.png"></image>
+  <text class="no-data-desc">网络开小差了</text>
+  <view class="re-load" bindtap="reLoad" bindtap="reLoad">重新加载</view>
+</view>
+<view class="my-coupon-detail" wx:else>
+  <couponDetailItem obj="{{detailData}}"></couponDetailItem>
+  <!-- 核销码 -->
+  <view class="he-xiao" wx:if="{{detailData.couponUseMethod==0 || detailData.couponUseMethod.length>1}}">
+    <view class="he-xiao-desc">核销码
+      <text class="he-xiao-copy-btn" bindtap="handleToCopy">复制</text>
+    </view>
+    <view class="{{detailData.useCouponStatus==0?'he-xiao-num':'he-xiao-num unactive'}}">
+      {{detailData.writeOffCode}}
+    </view>
+  </view>
+  <!--使用方式、到店使用说明、在线使用说明  -->
+  <couponTextDesc obj="{{detailData}}"></couponTextDesc>
+  <!-- 店铺 -->
+  <couponStoreInfo obj="{{detailData}}"></couponStoreInfo>
+  <!-- 未使用、且线上核销 -->
+  <view class="footer-box" wx:if="{{detailData.useCouponStatus==0 && detailData.couponUseMethod!=0}}">
+    <view class="footer-btn" bindtap="handleToUse">去使用</view>
+  </view>
+</view>
+<loading></loading>

@@ -1,0 +1,32 @@
+<!--pages/couponAvailableGoods/index.wxml-->
+<view>
+  <view class="header">
+    <view class="limit-time">
+      <text>以下是可用优惠券抵扣的商品, 有效期是 </text>
+      <!-- 0 领取后天生效 1领取后月生效 2 固定期限 领取后都是固定期限-->
+      <text>{{detailData.couponStartTime}}-{{detailData.couponEndTime}}</text>
+    </view>
+    <view class="limit-more">
+      <text class="name">优惠券</text>
+      <!-- 1 满减 2 折扣 -->
+      <text class="limit-money" wx:if="{{detailData.couponType==1}}">满{{detailData.metAmount}}减{{detailData.deductionAmount}}</text>
+      <text class="limit-money" wx:if="{{detailData.couponType==2}}">{{detailData.discountRatio}}折</text>
+    </view>
+  </view>
+  <view class="content">
+    <goodsItem wx:for="{{goodsListData}}" wx:key="index" item="{{item}}" data-spuid="{{item.spuId}}" bindtap="toDetail"></goodsItem>
+    <view class="no-goods" wx:if="{{goodsListData.length<=0&&!$state.isShowLoading}}">
+      <image class="no-goods-img" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/no-order-icon.png"></image>
+      <text class="no-goods-txt">暂无可用商品</text>
+    </view>
+  </view>
+  <view class="status-tips" wx:if="{{goodsListData.length>0}}">
+    <text class="line"></text>
+    <view class="text">
+      <text wx:if="{{isMore}}">上滑加载更多</text> 
+      <text wx:else>已加载全部内容</text>
+    </view>
+    <text class="line"></text>
+  </view>
+</view>
+<loading></loading>

@@ -1,0 +1,27 @@
+<!--pages/orderList/index.wxml-->
+
+<view class="order-box">
+  <!-- <comNav vTitle="我的订单" curPageName="orderList"></comNav> -->
+  <comTab>
+    <!-- catchtouchmove='true' -->
+    <!-- <view style="height:100%;"> -->
+      <scrollView triggered="{{curPullDownStatus}}" height="{{1334}}" bindrefreshEvent="pullDownEvent" bindbottmRefreshEvent="loadTopEvent">
+      <view class="no-order" wx:if="{{$state.orderListData.length<=0&&$state.isRequest && !$state.isShowLoading}}">
+        <image class="no-order-img" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/no-order-icon.png"></image>
+        <text class="no-order-txt">还没有订单哦~</text>
+      </view>
+      <view class="no-order" wx:elif="{{$state.orderListData.length<=0&&$state.isCurNoNetwork}}">
+        <image class="no-order-img" src="./../../images/no-network.png"></image>
+        <text class="no-order-txt">网络开小差了</text>
+        <view class="re-load" bindtap="reLoad">重新加载</view>
+      </view>
+      <block  wx:else>
+        <comOrderItem objData="{{item}}" wx:for="{{$state.orderListData}}" wx:key="unique"></comOrderItem>
+      </block>
+      <loading></loading>
+      <!-- <view style="width:100%;height:120px;"></view> -->
+      <view class="load-finish" wx:if="{{$state.isOrderLoad && $state.orderListData.length>0}}">—— 已加载全部内容 ——</view>
+    </scrollView>
+    <!-- </view> -->
+  </comTab>
+</view>

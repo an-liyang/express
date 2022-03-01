@@ -1,0 +1,9 @@
+<!--pages/goodsDetail/components/couponGoods/index.wxml-->
+<view class="coupon-item">
+  <view class="label">优惠</view>
+  <view class="tips">领券</view>
+  <view class="coupon-tag">
+    <text class="text" wx:for="{{listData}}" wx:key="index">{{item.showInfo}}</text>
+  </view>
+  <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/arrow-right-icon.png" class="more-icon"></image>
+</view>

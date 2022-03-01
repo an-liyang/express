@@ -1,0 +1,12 @@
+<!--components/comConfirmPopup/index.wxml-->
+<van-overlay show="{{ show }}" custom-style="background: rgba(41, 37, 34, 0.5);">
+  <view class="confim-dialog">
+    <view class="confim-dialog-header">确认删除爱车？</view>
+    <view class="confim-dialog-message">删除后爱车信息将不被保留，请谨慎操作</view>
+    <view class="confim-dialog-footer">
+      <view class="confim-dialog-btn" bindtap="onClose">取消</view>
+      <view class="confim-dialog-btn" bindtap="onOk">确认</view>
+    </view>
+  </view>
+</van-overlay>
+

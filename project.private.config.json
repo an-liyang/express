@@ -1,0 +1,24 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/servicePage/index",
+          "pathName": "pages/servicePage/index",
+          "query": "bussinessId=5387",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

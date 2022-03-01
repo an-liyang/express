@@ -1,0 +1,7 @@
+<!--pages/orderDetail/components/comAfterSalesInfo/index.wxml-->
+<view class="after-sales">
+  <view class="head-title">售后承诺</view>
+  <view class="main-desc">
+    {{$state.orderDetailData.spuSalesService}}
+  </view>
+</view>

@@ -1,0 +1,19 @@
+<!--pages/goodsDetail/components/shareMask/index.wxml-->
+<van-overlay show="{{ isShareShow }}" catchtap="onClickHide" custom-style="background: rgba(41, 37, 34, 0.5)">
+  <view class="share-wrapper">
+    <view class="share-top-box" catchtap="()=>{}">
+      <image class="poster-img" src="{{src}}"/>
+    </view>
+
+    <view class="share-bot-box">
+      <!-- catchtap="()=>{}" -->
+      <slot></slot>
+      <view class="share-bot-btn-item" catchtap="saveToAlbum">
+        <button class="save-button">
+          <image class="save-img" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/save_poster_icon.png"></image>
+          <view>保存图片</view>
+        </button>
+      </view>
+    </view>
+  </view>
+</van-overlay>

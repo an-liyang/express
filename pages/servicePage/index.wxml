@@ -1,0 +1,73 @@
+<!--pages/servicePage/index.wxml-->
+<comNav vTitle="{{$state.storeInfo.tenantName}}" curPageName="servicePage"></comNav>
+<view class="service">
+  <image class="bg" src='../../images/service/ellipse-icon-2.png'></image>
+  <view class="my-car">
+    <view class="my-car-left">
+      <!-- 是否当前爱车 0否 1是 -->
+      <view wx:if="{{$state.isHasCar}}">
+        <view class="car-license">{{$state.defaultCar.licensePlateNumber}}</view>
+        <view class="car-model">
+          <image wx:if="{{$state.defaultCar.carLogo}}" class="car-brand-logo" src='{{$state.defaultCar.carLogo}}' mode="widthFix"></image>
+          <text class="car-brand {{$state.defaultCar.carLogo?'haslogo':'nologo'}}">{{$state.defaultCar.brandName}}\t{{$state.defaultCar.csName}}</text>
+        </view>
+      </view>
+      <view wx:else>
+        <view class="add-car-title">添加爱车</view>
+        <view  class="add-car-tips">添加爱车享受一站式养护服务</view>
+      </view>
+    </view>
+    <view class="my-car-right">
+      <navigator url="../myLoveCar/index?type=change&source=service" wx:if="{{$state.isHasCar}}">
+        <image class="change-car-icon" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/change-icon.png"></image>
+        <text class="change-car-btn">切换爱车</text>
+      </navigator>
+      <!-- <navigator url="../boundCar/index?type=add" wx:else> -->
+        <view wx:else>
+          <text class="add-car-btn" bindtap="toBoundCar">添加爱车</text>
+        </view>
+      <!-- </navigator> -->
+    </view>
+  </view>
+  <!-- 优惠券 -->
+  <view class="discount-coupon">
+    <coupon-list list="{{list}}"></coupon-list>
+  </view>
+  <!-- 商品列表 -->
+  <view class="goods-box">
+    <view  class="goods-title">
+      热卖服务
+    </view>
+    <view class="no-goods" wx:if="{{$state.goodsListData.length<=0&&$state.isRequest}}">
+      <image class="no-goods-img" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/no-order-icon.png"></image>
+      <text class="no-goods-txt">暂无在售商品</text>
+    </view>
+    <view class="no-goods" wx:if="{{$state.goodsListData.length<=0&&$state.isCurNoNetwork}}">
+      <image class="no-goods-img" src="./../../images/no-network.png"></image>
+      <text class="no-goods-txt">网络开小差了</text>
+      <view class="re-load" bindtap="reLoad">重新加载</view>
+    </view>
+    <view class="goods-content">
+      <goods-list 
+        bindtap="toDetail"
+        data-spuid="{{item.spuId}}"
+        wx:for="{{$state.goodsListData}}"
+        wx:key="id"
+        item="{{item}}">
+      </goods-list>
+    </view>
+    <loading></loading>
+  </view>
+  <view class="status-tips" wx:if="{{$state.goodsListData.length>0}}">
+    <text class="line"></text>
+    <view class="text">
+      <text wx:if="{{$state.isMore}}">上滑加载更多</text> 
+      <text wx:else>已加载全部内容</text>
+    </view>
+    <text class="line"></text>
+  </view>
+</view>
+<authPhone wx:if="{{$state.isTipMask==true}}" bindupdatePageFunc="updatePageFunc"></authPhone>
+
+
+

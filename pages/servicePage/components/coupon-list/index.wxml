@@ -1,0 +1,27 @@
+<!--pages/servicePage/components/coupon-list/index.wxml-->
+<view class="discount-coupon-title" bindtap="toGetCoupon" wx:if="{{$state.couponListData.length>0}}">
+  <view class="left">优惠券</view>
+  <view class="right">
+    <text>领券中心</text>
+    <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/arrow-right-icon.png" class="more-icon"></image>
+  </view>
+</view>
+<view class="discount-coupon-list">
+  <view class="discount-coupon-item" wx:for="{{$state.couponListData}}" wx:key="index" data-id="{{item.templateId}}" bindtap="toGetCouponDetail">
+    <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/bg-icon.png" class="bg"></image>
+    <!-- 0 到点核销 1 线上折扣 0,1 全部 -->
+    <image src="{{item.couponUseMethod==0?tips1:item.couponUseMethod==1?tips2:tips3}}" class="tips {{item.couponUseMethod.length>1?'w65':'w56'}}"></image>
+    <!-- 1 满减 2 折扣 -->
+    <view class="discount" wx:if="{{item.couponType==1}}">
+      <text class="discount-unit">￥</text>
+      <text>{{item.deductionAmount}}</text>
+    </view>
+    <view class="discount" wx:if="{{item.couponType==2}}">
+      <text>{{item.discountRatio}}</text>
+      <text class="discount-unitText">折</text>
+    </view>
+    <view class="condition" wx:if="{{item.couponType==1}}">满{{item.metAmount}}元可用</view>
+    <!--  0 全部商品可用 1 部分商品可用 2 部分商品不可用 -->
+    <view class="limit" wx:if="{{item.commodityType!=null && item.commodityType!=0}}">部分商品可用</view>
+  </view>
+</view>

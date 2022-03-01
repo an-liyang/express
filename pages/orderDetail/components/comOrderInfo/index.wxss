@@ -1,0 +1,28 @@
+/* pages/orderDetail/components/comOrderInfo/index.wxss */
+.order-info{
+  margin-top:24rpx;
+  width:100%;
+  padding:4rpx 24rpx 20rpx 24rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 8rpx 24rpx 0rpx rgba(41, 37, 34, 0.02);
+  border-radius: 8rpx;
+  box-sizing: border-box;
+}
+.order-info-item{
+width:100%;
+display:flex;
+margin-top:22rpx;
+justify-content: space-between;
+align-items:center;
+font-size: 24rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #292522;
+line-height: 34rpx;
+}
+.order-info-item-key{
+text-align:left;
+}
+.order-info-item-val{
+text-align:right;
+}

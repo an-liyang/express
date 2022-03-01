@@ -1,0 +1,64 @@
+<!--pages/myLoveCar/index.wxml-->
+<!-- <comNav vTitle="{{title}}" curPageName="myLoveCar"></comNav> -->
+<loading></loading>
+<view class="my-car {{myCarList.length<=4?'pb':''}}" wx:if="{{!$state.isShowLoading}}">
+  <view wx:if="{{myCarList.length>0&&!$state.isCurNoNetwork}}">
+    <view class="my-car-item" wx:for="{{myCarList}}" wx:key="index">
+      <view class="my-car-item-base">
+        <view class="my-car-left">
+          <image wx:if="{{item.carLogo}}" class="car-brand-logo" src='{{item.carLogo}}' mode="widthFix"></image>
+        </view>
+        <view class="my-car-right">
+          <!-- 是否当前爱车 0否 1是 -->
+          <view class="car-license">
+            <text class="text">{{item.licensePlateNumber}}</text>
+            <text class="default-car" wx:if="{{item.isPresent==1}}">默认车辆</text>
+          </view>
+          <view class="car-brand">{{item.brandName}}\t{{item.csName}}</view>
+        </view>
+      </view>
+      <text class="line"></text>
+      <view class="my-car-item-operate">
+        <view class="operate-left operate-item" wx:if="{{item.isPresent==0}}" bindtap="setDefaultCar" data-id="{{item.id}}" data-type="{{item.isPresent}}">
+          <image src="{{item.isPresent==0?'http://img1.bitauto.com/das/chehou_sass/sass_wx/circle-icon.png':'http://img1.bitauto.com/das/chehou_sass/sass_wx/circle-select-icon.png'}}" class="operate-icon"></image>
+          <text>设为默认车辆</text>
+        </view>
+        <view class="operate-right operate-item">
+          <view style="margin-right: 64rpx" bindtap="toBoundCar" data-type="edit" data-id="{{item.id}}" data-isset="true">
+            <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/edit-icon.png" class="operate-icon"></image>
+            <text>编辑</text>
+          </view>
+          <view bindtap="delateCar" data-id="{{item.id}}" data-type="{{item.isPresent}}">
+            <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/delete-icon.png" class="operate-icon"></image>
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 添加爱车按钮 -->
+    <view class="footer-btn" wx:if="{{myCarList.length<=4}}">
+      <view class="btn" bindtap="toBoundCar" data-type="add" data-isset="true">
+        <text>添加爱车</text>
+      </view>
+    </view>
+  </view>
+  <!-- 没有爱车 -->
+  <view class="my-car-null" wx:if="{{myCarList.length<=0&&!$state.isCurNoNetwork}}">
+    <view class="null-img">
+      <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/no-car-icon.png"></image>
+    </view>
+    <view class="null-tips">还未添加爱车哦</view>
+    <view class="null-btn" bindtap="toBoundCar" data-type="add"  data-isset="false">添加爱车</view>
+  </view>
+  <!-- 弱网提示 -->
+  <view class="my-car-null" wx:if="{{myCarList.length<=0&&$state.isCurNoNetwork}}">
+    <view class="null-img">
+      <image src="./../../images/no-network.png"></image>
+    </view>
+    <view class="null-tips">网络开小差了</view>
+    <view class="null-btn reLoad-btn" bindtap="reLoad">重新加载</view>
+  </view>
+  <confirm-pop-up show="{{isShowDel}}" bind:onClose="onClose" bind:onOk="onOk"></confirm-pop-up>
+</view>
+<authPhone wx:if="{{$state.isTipMask==true}}" bindupdatePageFunc="updatePageFunc"></authPhone>
+

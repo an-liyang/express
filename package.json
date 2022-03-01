@@ -1,0 +1,20 @@
+{
+	"name": "yi-car-maintain",
+	"version": "1.0.0",
+	"description": "易养车小程序",
+	"main": "app.js",
+	"scripts": {
+		"switch-dev-env": "node build dev",
+		"switch-beta-env": "node build beta",
+		"switch-prod-env": "node build prod",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "tangcl",
+	"license": "ISC",
+	"dependencies": {
+		"@vant/weapp": "^1.6.8",
+		"js-base64": "^3.6.1",
+		"md5": "^2.3.0",
+		"wxministore": "^1.3.1"
+	}
+}

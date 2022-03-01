@@ -1,0 +1,27 @@
+<!--pages/couponCenter/index.wxml-->
+<view>
+  <view class="list" wx:if="{{couponList.length>0}}">
+    <couponListItem 
+      wx:for="{{couponList}}"
+      wx:key="templateId"
+      couponItem="{{item}}"
+      bind:receiveChange="receiveChange"
+      data-id="{{item.templateId}}"
+      bindtap="toGetCouponDetail"
+      isCallBack="{{false}}"></couponListItem>
+  </view>
+  <view class="no-data" wx:if="{{couponList.length==0&&!$state.isShowLoading}}">
+    <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/no-coupon-icon.png" class="img"></image>
+    <view class="text">暂无优惠券~</view>
+  </view>
+  <view class="status-tips" wx:if="{{couponList.length>0}}">
+    <text class="line"></text>
+    <view class="text">
+      <text wx:if="{{isMore}}">上滑加载更多</text> 
+      <text wx:else>已加载全部内容</text>
+    </view>
+    <text class="line"></text>
+  </view>
+</view>
+<loading></loading>
+<authPhone wx:if="{{$state.isTipMask==true}}" bindupdatePageFunc="updatePageFunc"></authPhone>

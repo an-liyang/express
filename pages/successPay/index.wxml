@@ -1,0 +1,12 @@
+<!--pages/successPay/index.wxml-->
+<comNav vTitle="支付成功" curPageName="successPay"></comNav>
+<view class="pay-box">
+<view class="top-status">
+  <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/success-pay-icon.png" class="img"></image>
+  <view class="txt">支付成功</view>
+</view>
+<view class="btn-box">
+  <view class="back-home" bindtap="handleBackHome">返回首页</view>
+  <view class="look-order" bindtap="handleLookOrder">查看订单</view>
+</view>
+</view>

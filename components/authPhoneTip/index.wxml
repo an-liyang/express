@@ -1,0 +1,9 @@
+<!--components/authPhoneTip/index.wxml-->
+<van-overlay show="{{$state.isTipMask}}" bind:click="onClickHide">
+  <view class="wrapper">
+    <view class="inner-wrapper" catch:tap="noop">
+    <view class="desc">还差一步~手机号授权登录，即可享受本店所有服务</view>
+    <button class="btn" open-type="getPhoneNumber" bindgetphonenumber="toAuthPhone">微信授权</button>
+    </view>
+  </view>
+</van-overlay>

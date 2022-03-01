@@ -1,0 +1,10 @@
+<!--pages/orderDetail/components/comReceivingInfo/index.wxml-->
+<view class="receive-info">
+<view class="receive-info-head">收货信息</view>
+<view class="receive-info-main">
+<view class="receive-info-item">
+<view class="receive-info-item-key">收货方式</view>
+<view class="receive-info-item-val">到店安装</view>
+</view>
+</view>
+</view>

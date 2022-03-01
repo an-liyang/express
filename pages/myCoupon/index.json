@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText":"我的优惠券",
+  "navigationBarBackgroundColor": "#F7F7F9",
+  "disableScroll": true,
+  "usingComponents": {
+    "couponItem":"./components/couponItem/index",
+    "loading":"./../../components/loading/index",
+    "scrollView":"./../../components/comScorllView/index"
+  }
+}

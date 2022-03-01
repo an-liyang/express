@@ -1,0 +1,38 @@
+<!--components/comLetterKey/index.wxml-->
+<van-popup
+  show="{{ true }}"
+  closeable="{{false}}"
+  position="bottom"
+  overlay="{{false}}"
+  custom-style="background: #F5F7FA;padding:0rpx;"
+  catchtap="catchtapFalse"
+>
+  <view class="btn-confirm" catchtap="onConfirm">完成</view>
+  <view class="letter-box">
+    <view class="content-text">
+      <view class="item" hover-class="active" wx:for="{{keyList}}" wx:key="index" catchtap="handleInput" data-val="{{item}}">{{item}}</view>
+    </view>
+    <view class="content-num">
+      <view class="item" hover-class="active" wx:for="{{numList}}" wx:key="index" catchtap="handleInput" data-val="{{item}}">{{item}}</view>
+    </view>
+    <view class="content-letter">
+      <view class="one">
+        <view class="item" hover-class="active" wx:for="{{letterList[0]}}" wx:key="index" catchtap="handleInput" data-val="{{item}}">{{item}}</view>
+      </view>
+      <view class="two">
+        <view class="item" hover-class="active" wx:for="{{letterList[1]}}" wx:key="index" catchtap="handleInput" data-val="{{item}}">{{item}}</view>
+      </view>
+      <view class="footer">
+        <view class="btn-aside" catchtap="onConfirm">
+          <image src="../../images/key-aside-icon.png" class="img"></image>
+        </view>
+        <view class="three">
+          <view class="item" hover-class="active" wx:for="{{letterList[2]}}" wx:key="index" catchtap="handleInput" data-val="{{item}}">{{item}}</view>
+        </view>
+        <view class="btn-del" catchtap="handleDel">
+          <image src="../../images/key-del-icon.png" class="img"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</van-popup>

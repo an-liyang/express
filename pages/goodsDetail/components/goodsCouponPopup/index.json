@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "comCouponBottomMask": "../../../../components/comCouponBottomMask/index",
+    "couponListItem": "../../../couponCenter/components/couponListItem/index"
+  }
+}

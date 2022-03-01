@@ -1,0 +1,40 @@
+<!--components/comOrderItem/index.wxml-->
+<wxs src="../../../../utils/format.wxs" module="fn"></wxs>
+<view class="order-item" catchtap="clickToOrderDetail" data-sputype="{{objData.spuType}}" data-orderno="{{objData.orderNo}}" data-status="{{objData.orderStatus}}" data-type="{{objData.spuType}}">
+  <!--head -->
+  <view class="order-item-head">
+    <view class="item-head-title">{{objData.tenantName}}</view>
+    <view wx:if="{{objData.orderStatus=='83'}}" class="item-head-status">已完成</view>
+    <view wx:elif="{{objData.orderStatus=='20'}}" class="item-head-status item-head-service">待服务</view>
+    <view wx:elif="{{objData.orderStatus=='10'}}" class="item-head-status item-head-pay">
+      {{expireTime}} 待支付
+    </view>
+    <view wx:else class="item-head-status">已关闭</view>
+  </view>
+  <!-- main -->
+  <view class="order-item-main">
+    <image src="{{objData.spuLogo}}" class="item-main-img"></image>
+    <view class="item-main-desc">
+      <view class="item-main-title">{{objData.spuTitle}}</view>
+      <view class="item-main-label-box">
+        <!--objData.skuSalesSpecifications-->
+        <view class="item-main-label-box-desc" wx:for="{{skuSalesSpecifications}}" wx:key="unique">{{item}}</view>
+        <!-- <view class="item-main-label-box-size">1.52m*15m</view> -->
+      </view>
+      <view class="item-num">
+        数量：{{objData.amount}}
+      </view>
+      <view wx:if="{{(objData.orderStatus==20||objData.orderStatus==83) && objData.spuType==1}}" class="item-main-price price-share">到店立享优惠价<text class="price-share price-share-num">￥{{objData.skuSalesPrice}}</text></view>
+      <view wx:else class="item-main-price price-pay">
+        <text class="">{{objData.orderStatus==20||objData.orderStatus==83?'实付款':'应支付'}}￥</text>
+        <text class="item-main-price-num-int">{{fn.formatValue(objData.orderAmount)[0]}}</text>
+        <text wx:if="{{fn.formatValue(objData.orderAmount)[1]}}">.</text>
+        <text class="item-main-price-num-float">{{fn.formatValue(objData.orderAmount)[1]}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- footer -->
+  <view class="order-item-footer" wx:if="{{objData.orderStatus=='10'}}">
+    <view class="order-item-btn">继续支付</view>
+  </view>
+</view>

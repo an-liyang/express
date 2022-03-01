@@ -1,0 +1,44 @@
+<!--pages/orderDetail/index.wxml-->
+<!-- <comNav vTitle="订单详情" curPageName="orderDetail"></comNav> -->
+<loading></loading>
+<view class="order-detail-outer">
+<view class="no-order" wx:if="{{$state.isCurNoNetwork}}">
+  <image class="no-order-img" src="./../../images/no-network.png"></image>
+  <text class="no-order-txt">网络开小差了</text>
+  <view class="re-load" bindtap="reLoad">重新加载</view>
+</view>
+<view class="order-detail" wx:else>
+<view class="order-detail-head-bkg"></view>
+<view class="order-detail-main {{pageStatus=='10'?'':'order-detail-main-nofooter'}}">
+<!-- 订单状态 -->
+<!-- wx:if="{{pageStatus>0}}" -->
+<comOrderStatus status="{{pageStatus}}" objData="{{$state.orderDetailData}}"></comOrderStatus>
+<!-- 核销码 -->
+<block  wx:if="{{pageStatus=='20' || pageStatus=='83'}}">
+  <comVerificationCode status="{{pageStatus}}"></comVerificationCode>
+</block>
+<!-- 个人信息 -->
+<comPerson></comPerson>
+<!-- 收货信息 -->
+<comReceiving objData="{{$state.orderDetailData}}"></comReceiving>
+<!-- 店铺信息 -->
+<comStore objData="{{$state.orderDetailData}}"></comStore>
+<!-- 车信息 -->
+<comCar objData="{{$state.orderDetailData}}" status="{{pageStatus}}"></comCar>
+<!-- 支付方式 -->
+<block wx:if="{{pageStatus=='10'}}">
+  <comPayMethod objData="{{$state.orderDetailData}}"></comPayMethod>
+</block>
+<!-- 订单信息 -->
+<comOrder status="{{pageStatus}}"></comOrder>
+<!-- 售后信息 -->
+<block wx:if="{{pageStatus=='83' && $state.orderDetailData.spuSalesService}}">
+  <comAfterSalses></comAfterSalses>
+</block>
+<!-- 支付按钮 -->
+<block wx:if="{{pageStatus=='10'}}">
+  <comShopDecoration></comShopDecoration>
+</block>
+</view>
+</view>
+</view>

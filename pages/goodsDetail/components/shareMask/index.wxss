@@ -1,0 +1,88 @@
+/* pages/goodsDetail/components/shareMask/index.wxss */
+/* 分享 */
+.share-wrapper{
+  width:100%;
+  height:100%;
+  position: relative;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  z-index:2;
+  position: relative;
+}
+.share-top-box{
+  position: absolute;
+  top:calc(45%);
+  transform:translateY(-50%);
+  /* width:590rpx; */
+  width:590rpx;
+  height:944rpx;
+  /* margin-top:240rpx; */
+  background:#fff;
+  /* border-radius: 32rpx; */
+}
+.poster-img{
+  width:590rpx;
+  height:944rpx;
+  display:inline-block;
+}
+.share-bot-box{
+  width:100%;
+  padding:48rpx 148rpx 52rpx 148rpx;
+  height:204rpx;
+  position:fixed;
+  bottom:0rpx;
+  left:0rpx;
+  background: #FFFFFF;
+  border-radius: 32rpx 32rpx 0rpx 0rpx;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  box-sizing: border-box;
+}
+.share-bot-btn-item{
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.save-img{
+  width:64rpx;
+  height:64rpx;
+  display:inline-block;
+  margin-bottom:16rpx;
+}
+.save-button {
+  display:inline !important;
+   padding: 0px !important;
+   border-radius: 0rpx !important;
+   background:transparent !important;
+   margin:0rpx !important;
+   padding:0rpx !important;
+   border-color:transparent !important;
+   font-size: 24rpx !important;
+   font-family: PingFangSC-Regular, PingFang SC !important;
+   font-weight: 400 !important;
+   color: #292522 !important;
+   line-height: 24rpx !important;
+ }
+ .save-button::after {
+   border: none !important;
+ }
+.save-btn{
+  line-height: 40rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #292522;
+}
+.btn::after {
+	/*button的边框样式是通过::after方式实现的*/
+	border: none;
+}
+.btn.button-hover {
+	/*点击后样式*/
+	color: #000;
+	background-color: rgb(247, 247, 247);
+}

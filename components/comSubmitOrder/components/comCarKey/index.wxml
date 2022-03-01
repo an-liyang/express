@@ -1,0 +1,23 @@
+<!--components/comSubmitOrder/components/comCarKey/index.wxml-->
+<van-popup
+  show="{{ $state.isShowCarKey }}"
+  closeable="{{false}}"
+  position="bottom"
+  overlay="{{false}}"
+  custom-style="background: #F5F7FA;padding:0rpx;"
+  catchtap="catchtapFalse"
+>
+<view class="con-box">
+  <view class="btn-item-box" wx:for="{{keyList}}" wx:key="unique" wx:for-item="item">
+    <view class="pro-btn {{curSelectedVal==itemName?'active-pro-btn':''}}" wx:for="{{item}}" wx:for-item="itemName" wx:key="unique" catchtap="handleToggle" data-name="{{itemName}}">{{itemName}}</view>
+  </view>
+  <view class="bottom-box">
+    <view class="left-pro">
+      <view catchtap="handleToggle" data-name="藏" class="pro-btn {{curSelectedVal=='藏'?'active-pro-btn':''}}" style="margin-right:18rpx;">藏</view>
+      <view catchtap="handleToggle" data-name="宁" class="pro-btn {{curSelectedVal=='宁'?'active-pro-btn':''}}" style="margin-right:18rpx;">宁</view>
+      <view catchtap="handleToggle" data-name="新" class="pro-btn {{curSelectedVal=='新'?'active-pro-btn':''}}" style="margin-right:18rpx;">新</view>
+    </view>
+    <veiw class="confirm-btn" bindtap="onConfirm">确定</veiw>
+  </view>
+</view>
+</van-popup>

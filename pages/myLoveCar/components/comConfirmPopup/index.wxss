@@ -1,0 +1,49 @@
+/* components/comConfirmPopup/index.wxss */
+.confim-dialog{
+  width: 542rpx;
+  height: 318rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background: #FFFFFF;
+  border-radius: 12rpx;
+  text-align: center;
+  overflow: hidden;
+}
+.confim-dialog-header{
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #292522;
+  line-height: 44rpx;
+  letter-spacing: 2rpx;
+  padding: 40rpx 32rpx 0;
+  box-sizing: border-box;
+}
+.confim-dialog-message{
+  padding: 24rpx 32rpx 40rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #292522;
+  line-height: 40rpx;
+  letter-spacing: 2rpx;
+}
+.confim-dialog-footer{
+  border-top: 2rpx solid #E7E3DC;
+  height: 88rpx;
+  display: flex;
+}
+.confim-dialog-btn{
+  width: 270rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #FF8833;
+  letter-spacing: 2rpx;
+}
+.confim-dialog-btn:first-child{
+  border-right: 2rpx solid #E7E3DC;
+}

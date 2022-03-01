@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-switch": "@vant/weapp/switch/index",
+    "comCarKey":"../../components/comSubmitOrder/components/comCarKey/index",
+    "comNav":"./../../components/comTopNav/index",
+    "comLetterKey":"../../components/comLetterKey/index"
+  },
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "backgroundColor":"#FFFFFF"
+}

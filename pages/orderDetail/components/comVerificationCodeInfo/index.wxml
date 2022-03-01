@@ -1,0 +1,10 @@
+<!--pages/orderDetail/components/comVerificationCodeInfo/index.wxml-->
+<view class="verification-code">
+  <view class="title">核销码</view>
+  <image wx:if="{{status=='83'}}" class="img" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/he-xiao-icon.png"></image>
+  <view class="code-box">
+    <view class="code">{{$state.orderDetailData.writeoffCode}}</view>
+    <view class="btn" bindtap="handleToCopy">复制</view>
+  </view>
+  <view class="desc">请完成服务后将核销码提供给服务门店，请勿泄露给其他人</view>
+</view>

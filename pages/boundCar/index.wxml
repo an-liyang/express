@@ -1,0 +1,84 @@
+<!--pages/boundCar/index.wxml-->
+<!-- <comNav vTitle="{{title}}" curPageName="boundCar"></comNav> -->
+<view class="bound-car" bindtap="handleSubOrderPage">
+  <view class="bound-car-box">
+    <form>
+      <view class="form-item required item-select-car">
+        <view class="label">车型</view>
+        <!-- <input class="right" name="input" placeholder="请选择车型" placeholder-style="color:#A3A09D" value="{{currentCar.brandId}}" data-name="brandId"/> -->
+        <view bindtap="toSelectCarModels">
+          <van-field
+            class="right"
+            input-align="right"
+            placeholder-style="color: #A3A09D;font-size:28rpx;"
+            placeholder="请选择车型"
+            border="{{ false }}"
+            input-class="input-class-model"
+            custom-style="padding: 0;"
+            value="{{carModel}}"
+            disabled
+          />
+          <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/arrow-right-icon.png" class="select-car-icon"></image>
+        </view>
+      </view>
+      <view class="form-item required item-licence">
+        <view class="label">车牌号</view>
+        <view class="province" catchtap="showPopup">
+          <text style="margin-right: 4rpx">{{$state.carKeyDefaultVal}}</text>
+          <image class="download-icon" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/arrow-down-icon.png"></image>
+        </view>
+        <!-- <input class="licence" name="input" placeholder="请输入车牌号" placeholder-style="color:#A3A09D" value="{{currentCar.licensePlateNumber}}" bindblur="bindBlur" data-name='licensePlateNumber'/> -->
+        <!-- <van-field
+          class="licence"
+          input-align="right"
+          placeholder-style="color: #A3A09D;font-size:28rpx;"
+          placeholder="请输入车牌号"
+          border="{{ false }}"
+          input-class="input-class-licence"
+          custom-style="padding: 0;"
+          value="{{currentCar.licensePlateNumber}}"
+          disabled
+          catchtap="showLetterKey" /> -->
+          <!-- 使用输入框：如果页面上有输入框获取焦点的情况下，点击不能拉起字母键盘 -->
+          <view class="licence" catchtap="showLetterKey">
+            <text wx:if="{{currentCar.licensePlateNumber}}">{{currentCar.licensePlateNumber}}</text>
+            <text wx:else style="color: #A3A09D;font-size:28rpx;">请输入车牌号</text>
+          </view>
+          <image src="../../images/cursor-gif.gif" class="cursor-pic" wx:if="{{isShowLetterKey}}"></image>
+      </view>
+      <view class="form-item-van {{(isset=='true'&&issetOld)?'form-item-van-border':''}}">
+        <!-- <view class="label">车架号</view> -->
+        <!-- <input class="right" name="input" placeholder="请输入车架号" placeholder-style="color:#A3A09D" value="{{currentCar.vin}}" bindblur="bindBlur" data-name='vin'/> -->
+        <van-field
+          label="车架号"
+          title-width="114rpx"
+          placeholder-style="color: #A3A09D;font-size:28rpx;"
+          placeholder="请输入车架号"
+          input-align="right"
+          border="{{ false }}"
+          label-class="label-class-vin"
+          input-class="input-class-vin"
+          custom-style="padding: 32rpx 0"
+          maxlength="17"
+          bind:blur="bindBlur"
+          bind:input="bindInput"
+          data-name="vin"
+          value="{{currentCar.vin}}"
+        />
+      </view>
+      <view class="form-item item-switch" wx:if="{{isset=='true'&&issetOld}}">
+        <view class="label">设为默认</view>
+        <van-switch class="switch" checked="{{ currentCar.isPresent }}" size="40rpx" active-color="#FF8833" bind:change="handleChange" custom-class="default-switch"/>
+      </view>
+    </form>
+  </view>
+  <view class="footer-btn">
+    <view class="btn {{isValidate?'':'null'}}" bindtap="saveCar" data-type="">
+      <text>保存</text>
+    </view>
+  </view>
+</view>
+<comCarKey wx:if="{{$state.isShowCarKey}}" bind:onConfirm="onConfirmText"></comCarKey>
+<comLetterKey wx:if="{{isShowLetterKey}}" curVal="{{currentCar.licensePlateNumber}}" bind:onConfirm="onConfirm" bind:handleInput="handleInput"></comLetterKey>
+
+

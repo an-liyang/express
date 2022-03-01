@@ -1,0 +1,159 @@
+/* pages/servicePage/index.wxss */
+.service{
+  width: 100%;
+  overflow-x: hidden;
+  /* height: 100vh; */
+  box-sizing: border-box;
+  font-size: 14px;
+  position: relative;
+  padding-top: 40rpx;
+  padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+/* 头部背景图 */
+.bg{
+  position: absolute;
+  top: -1rpx;
+  width: 750rpx;
+  height: 200rpx;
+  z-index: -1;
+}
+/* 我的爱车 */
+.my-car{
+  width: 702rpx;
+  height: 160rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 8rpx 24rpx 0px rgba(41, 37, 34, 0.02);
+  border-radius: 24rpx;
+  margin: 0 auto;
+  padding: 34rpx 48rpx 0 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.my-car .add-car-title,
+.my-car .car-license {
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #292522;
+  margin-bottom: 4rpx;
+}
+.my-car .car-model{
+  display: flex;
+}
+.my-car .add-car-tips,
+.my-car .car-brand{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #A3A09D;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.my-car .nologo{
+  width: 622rpx;
+}
+.my-car .haslogo{
+  width: 586rpx;
+}
+.my-car .car-brand-logo{
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+  margin-right: 4rpx;
+  margin-top: 4rpx;
+}
+/* 添加爱车 */
+.my-car .add-car-btn{
+  display: block;
+  width: 168rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background: #FF7700;
+  border-radius: 30rpx;
+  color: #FFFFFF;
+  font-size: 26rpx;
+  margin-top: 18rpx;
+}
+/* 切换爱车 */
+.my-car .change-car-btn{
+  position: absolute;
+  top: 16rpx;
+  right: 32rpx;
+  color: #FF7700;
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+}
+.my-car .change-car-icon{
+  position: absolute;
+  top: 22rpx;
+  right: 136rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+/* 优惠券 2021-6 */
+.discount-coupon{
+  padding: 24rpx;
+  padding-bottom: 0;
+}
+/* 热卖列表 */
+.goods-box{
+  padding: 24rpx;
+  padding-bottom: 0;
+}
+.goods-box .goods-title{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #292522;
+  margin: 16rpx 0 30rpx 0;
+}
+.status-tips{
+  padding: 40rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100rpx;
+}
+.status-tips .text{
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #CCC8C4;
+  margin: 0 16rpx;
+}
+.status-tips .line{
+  width: 48rpx;
+  height: 2rpx;
+  background: #CCC8C4;
+}
+.no-goods{
+  width: 100%;
+  margin-top: 240rpx;
+  text-align: center;
+}
+.no-goods .no-goods-img{
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 9rpx;
+  width: 228rpx;
+  height: 228rpx;
+}
+.no-goods .no-goods-text{
+  display: block;
+  margin: 0 auto;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #292522;
+  line-height: 40rpx;
+  text-shadow: 0 8rpx 24rpx rgba(219, 230, 255, 0.4);
+}

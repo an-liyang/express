@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText":"确认订单（免费）",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "comSubmitOrder":"./../../components/comSubmitOrder",
+    "comReceiving":"./../../components/comReceivingInfo",
+    "comStore":"./../../components/comStoreInfo",
+    "comCar":"./../../components/comCarInfo",
+    "comPayMethod":"./../../components/comPayMethodInfo",
+    "comNav":"./../../components/comTopNav/index"
+  }
+}

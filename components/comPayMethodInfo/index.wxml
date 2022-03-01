@@ -1,0 +1,6 @@
+<!--pages/orderDetail/components/comPayMethodInfo/index.wxml-->
+<view class="pay-method">
+  <view class="pay-method-key">支付方式</view>
+ <!-- <view class="pay-method-val">{{objData.paymentMethod}}</view>-->
+ <view class="pay-method-val">微信支付</view>
+</view>

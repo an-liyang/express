@@ -1,0 +1,41 @@
+<!--components/comTab/index.wxml-->
+
+<view class="com-tab" catchtouchmove="touchMove">
+  <view class="tab-head" catchtouchmove="touchMove">
+    <view class="tab-item-head" bindtap="handleToggleTab" data-type="total">
+      <view class="head-name {{$state.active=='total'?'head-name-active':''}}">
+        全部
+        <view class="head-active" wx:if="{{$state.active=='total'}}"></view>
+      </view>
+    </view>
+    <view class="tab-item-head" bindtap="handleToggleTab" data-type="pay">
+      <view class="head-name {{$state.active=='pay'?'head-name-active':''}}">
+        待支付
+        <view class="head-active" wx:if="{{$state.active=='pay'}}"></view>
+        <view class="head-right-icon" wx:if="{{$state.unPaidNumber>0}}">{{$state.unPaidNumber}}</view>
+      </view>
+    </view>
+    <view class="tab-item-head" bindtap="handleToggleTab" data-type="service">
+      <view class="head-name {{$state.active=='service'?'head-name-active':''}}">
+        待服务
+        <view class="head-active" wx:if="{{$state.active=='service'}}"></view>
+        <view class="head-right-icon" wx:if="{{$state.unServiceNumber>0}}">{{$state.unServiceNumber}}</view>
+      </view>
+    </view>
+    <view class="tab-item-head" bindtap="handleToggleTab" data-type="close">
+      <view class="head-name {{$state.active=='close'?'head-name-active':''}}">
+        已关闭
+        <view class="head-active" wx:if="{{$state.active=='close'}}"></view>
+      </view>
+    </view>
+    <view class="tab-item-head" bindtap="handleToggleTab" data-type="finish">
+      <view class="head-name {{$state.active=='finish'?'head-name-active':''}}">
+        已完成
+        <view class="head-active" wx:if="{{$state.active=='finish'}}"></view>
+      </view>
+    </view>
+  </view>
+  <view class="tab-main">
+    <slot></slot>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+/* pages/freeOrder/index.wxss */
+.free-order{
+  width:100%;
+  padding:24rpx 24rpx 136rpx 24rpx;
+  padding-bottom: calc((env(safe-area-inset-bottom) / 2) + 136rpx);
+  background: #F7F7F9;
+  box-sizing: border-box;
+  position: relative;
+}
+.footer-btn-box{
+  width:100%;
+  position: fixed;
+  bottom:0rpx;
+  left:0rpx;
+  /* width:100%; */
+  /* height:112rpx; */
+  padding:16rpx 24rpx;
+  padding-bottom: calc((env(safe-area-inset-bottom) / 2) + 16rpx);
+  /* line-height: 112rpx; */
+  box-sizing: border-box;
+  background: #FFFFFF;
+  box-shadow: 0rpx -4rpx 16rpx 0rpx rgba(41, 37, 34, 0.02);
+  }
+.footer-baoming{
+  height: 80rpx;
+  background: #FF8833;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Bold, PingFang SC;
+  font-weight: bold;
+  color: #FFFFFF;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.un-active{
+  background: #EBECF0;
+  color: #A3A09D;
+}

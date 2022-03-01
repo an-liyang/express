@@ -1,0 +1,107 @@
+/* component/index.wxss */
+.list-item{
+  /* min-height: 192rpx; */
+  height: 192rpx;
+  margin-top: 24rpx;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+.item-left{
+  flex: 0 0 216rpx;
+  position: relative;
+}
+.item-left .img{
+  width: 192rpx !important;
+  height: 192rpx !important;
+  background: #F4F6F9;
+  border-radius: 16rpx;
+}
+/* 无忧 */
+.item-left .item-carefree-tips{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 126rpx;
+  height: 40rpx;
+}
+
+.item-right{
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 8rpx;
+  padding-bottom: 2rpx;
+}
+/* 省略号 */
+.item-right .ellipsis{
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+.item-right .title{
+  font-size: 28rpx;
+  color: #292522;
+  line-height: 44rpx;
+  margin-bottom: 4rpx;
+}
+
+/* 优惠券标签 */
+.item-right .coupon-tag{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
+}
+.item-right .coupon-tag .text{
+  height: 32rpx;
+  border-radius: 4rpx;
+  border: 1rpx solid #F5222D;
+  padding: 0 8rpx;
+  box-sizing: border-box;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #F5222D;
+  /* line-height: 20rpx; */
+  margin-right: 8rpx;
+}
+/* 现价 */
+.item-right .price .current-price{
+  height: 42rpx;
+  font-family: DINAlternate-Bold, DINAlternate;
+  font-weight: bold;
+  color: #F5222D;
+}
+/* 单位 */
+.item-right .current-price .price-unit{
+  font-size: 24rpx;
+}
+/* 整数 */
+.item-right .current-price .price-int{
+  font-size: 36rpx;
+  line-height: 42rpx;
+}
+/* 小数 */
+.item-right .current-price .price-float{
+  font-size: 24rpx;
+}
+/* 范围 */
+.item-right .current-price .price-range{
+  margin-left: 4rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+}
+/* 原价 */
+.item-right .price .original-price{
+  font-size: 20rpx;
+  font-family: DINAlternate-Bold, DINAlternate;
+  line-height: 28rpx;
+  color: #A3A09D;
+  text-decoration: line-through;
+}

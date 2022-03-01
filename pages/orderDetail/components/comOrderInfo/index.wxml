@@ -1,0 +1,31 @@
+<!--pages/orderDetail/components/comOrderInfo/index.wxml-->
+<view class="order-info">
+  <view class="order-info-item">
+    <view class="order-info-item-key">订单编号</view>
+    <view class="order-info-item-val">{{$state.orderDetailData.orderNo}}</view>
+  </view>
+  <view class="order-info-item">
+    <view class="order-info-item-key">订单创建时间</view>
+    <view class="order-info-item-val">{{$state.orderDetailData.createStime}}</view>
+  </view>
+  <view class="order-info-item" wx:if="{{status=='80'||status=='82'}}">
+    <view class="order-info-item-key">订单关闭时间</view>
+    <view class="order-info-item-val">{{$state.orderDetailData.orderExpireTime}}</view>
+  </view>
+  <view class="order-info-item" wx:if="{{$state.orderDetailData.payStatus==1}}">
+    <view class="order-info-item-key" wx:if="{{status!='10'}}">支付时间</view>
+    <view class="order-info-item-val">{{$state.orderDetailData.payFinshTime}}</view>
+  </view>
+  <view class="order-info-item" wx:if="{{$state.orderDetailData.payStatus==1}}">
+    <view class="order-info-item-key">支付方式</view>
+    <view class="order-info-item-val">{{$state.orderDetailData.paymentMethod}}</view>
+  </view>
+  <view class="order-info-item" wx:if="{{$state.orderDetailData.refundStatus==2}}">
+    <view class="order-info-item-key">退款时间</view>
+    <view class="order-info-item-val">{{$state.orderDetailData.refundStime}}</view>
+  </view>
+  <view class="order-info-item" wx:if="{{status=='83'}}">
+    <view class="order-info-item-key">订单完成时间</view>
+    <view class="order-info-item-val">{{$state.orderDetailData.writeOffTime}}</view>
+  </view>
+</view>

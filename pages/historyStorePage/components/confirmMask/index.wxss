@@ -1,0 +1,57 @@
+/* components/authPhoneTip/index.wxss */
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.inner-wrapper {
+	width: 560rpx;
+	padding:0rpx;
+	box-sizing: border-box;
+	/* height: 246rpx; */
+	background: #ffffff;
+	border-radius: 8rpx;
+}
+.desc {
+	font-size: 32rpx;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #292522;
+	line-height: 48rpx;
+	letter-spacing: 1rpx;
+	padding: 40rpx 0rpx 40rpx 0rpx;
+	box-sizing: border-box;
+	border-bottom: 2rpx solid #E7E3DC;
+	text-align:center;
+}
+.footer{
+	height:88rpx;
+	display:flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 32rpx;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #FF8833;
+	line-height: 44rpx;
+	letter-spacing: 1rpx;
+}
+.cancle{
+flex:1;
+display:flex;
+justify-content: center;
+align-items: center;
+}
+.line{
+	width: 2rpx;
+	height: 88rpx;
+	background: #E7E3DC;
+}
+.ok{
+flex:1;
+display:flex;
+justify-content: center;
+align-items: center;
+}

@@ -1,0 +1,7 @@
+<!--components/loading/index.wxml-->
+<view class="loading-box" wx:if="{{$state.isShowLoading}}">
+  <view class="loading-inner-box">
+    <image class="loading-img" src="./../../images/loading.gif"></image>
+    <text>加载中</text>
+  </view>
+</view>

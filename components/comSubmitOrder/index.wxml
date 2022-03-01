@@ -1,0 +1,85 @@
+<!--components/comSubmitOrder/index.wxml-->
+<view class="submit-order">
+  <view class="submit-head">个人信息</view>
+  <view class="reg-item">
+    <van-field
+    label="姓名"
+    value="{{ $state.createOrderParams.userName }}"
+    bind:input="changeInputName"
+    bind:blur="handleInputName"
+    required
+    title-width="144rpx"
+    placeholder-style="color: #A3A09D;font-size:28rpx;"
+    placeholder="请输入姓名"
+    error-message="{{$state.usernameInputTip}}"
+    error-message-align="right"
+    maxlength='10'
+    input-align="right"
+    border="{{ false }}"
+    label-class="label-class"
+    input-class="input-class"
+    custom-style="padding-left:16px;padding-right:10px;"
+  />
+  </view>
+  <view class="line-box">
+    <view class="line"></view>
+  </view>
+  <view class="reg-item">
+    <van-field
+    label="手机号"
+    maxlength='11'
+    value="{{ $state.createOrderParams.orderPhone }}"
+    bind:input="changeInputPhone"
+    bind:blur="handleInputPhone"
+    required
+    type="number"
+    title-width="144rpx"
+    placeholder-style="color: #A3A09D;font-size:28rpx;"
+    placeholder="请输入手机号"
+    error-message="{{$state.phoneInputTip}}"
+    input-align="right"
+    error-message-align="right"
+    border="{{ false }}"
+    label-class="label-class"
+    input-class="input-class"
+    custom-style="padding-left:16px;padding-right:10px;"
+  />
+  </view>
+  <view class="line-box">
+    <view class="line"></view>
+  </view>
+  <view class="car-item" catchtap="handleC">
+  <view class="car-item-key">车牌号</view>
+  <view class="car-item-box">
+    <view class="car-item-province" catchtap="showPopup">{{$state.carKeyDefaultVal}}
+      <image class="arrow" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/bot-arrow-icon.png"></image>
+    </view>
+      <view class="car-num" catchtap="showLetterKey">
+        <text wx:if="{{$state.createOrderParams.orderCarNo}}" style="color: #292522;">{{$state.createOrderParams.orderCarNo}}</text>
+        <text wx:else style="color: #A3A09D;font-size:28rpx;">请输入车牌号</text>
+      </view>
+      <image src="../../images/cursor-gif.gif" class="cursor-pic" wx:if="{{isShowLetterKey}}"></image>
+  </view>
+  </view>
+  <view class="line-box">
+    <view class="line"></view>
+  </view>
+  <view class="beizhu-item" catchtap="handleC">
+  <view class="car-item-key">备注</view>
+  <van-field
+    value="{{ $state.createOrderParams.orderRemark }}"
+    bind:input="changeInputRemark"
+    title-width="144rpx"
+    placeholder-style="color: #A3A09D;font-size:28rpx;"
+    placeholder="请与商家协商一致后填写"
+    maxlength='50'
+    input-align="right"
+    border="{{ false }}"
+    input-class="beizhu"
+    custom-style="padding-right:10px;"
+  />
+  </view>
+</view>
+<comCarKey wx:if="{{$state.isShowCarKey}}" bind:onConfirm="onConfirmText"></comCarKey>
+<comLetterKey wx:if="{{isShowLetterKey}}" curVal="{{$state.createOrderParams.orderCarNo}}" bind:onConfirm="onConfirm" bind:handleInput="handleInput"></comLetterKey>
+

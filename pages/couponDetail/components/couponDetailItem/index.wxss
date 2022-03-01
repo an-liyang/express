@@ -1,0 +1,121 @@
+/* components/discountCouponItem/index.wxss */
+.discount-coupon-item {
+  margin-top: 24rpx;
+  width: 670rpx;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.fs20{
+  font-size:40rpx !important;
+}
+.fs32{
+  font-size:64rpx !important;
+}
+.discount-coupon-item .bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 670rpx;
+  height: 200rpx;
+}
+.discount-coupon-item .tips{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 112rpx;
+  height: 32rpx;
+  z-index: 1;
+}
+.discount-coupon-item .received{
+  position: absolute;
+  right: -4rpx;
+  top: -4rpx;
+  width: 112rpx;
+  height: 98rpx;
+  z-index: 1;
+}
+.discount-coupon-item .discount{
+  width: 230rpx;
+  height: 56rpx;
+  color: #F5222D;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+
+.discount-coupon-item .discount-info{
+  width: 320rpx;
+  padding-right: 8rpx;
+  box-sizing: border-box;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  left: 230rpx;
+  z-index: 1;
+}
+.discount-coupon-item .condition{
+  height: 48rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Bold, PingFang SC;
+  font-weight: bold;
+  color: #F5222D;
+  line-height: 48rpx;
+}
+.discount-coupon-item .limit,
+.discount-coupon-item .valid-period{
+  height: 36rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #F5222D;
+  line-height: 36rpx;
+}
+
+.discount-coupon-item .discount-btn-received{
+  background: #FFF0F0;
+  color: #F5222D;
+  border: 2rpx solid #F5222D;
+  box-sizing: border-box;
+  line-height: 60rpx;
+}
+
+.discount-unit{
+  margin-top: 20rpx;
+  height: 36rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC-Bold, PingFang SC;
+  font-weight: bold;
+  line-height: 36rpx;
+}
+.discount-int{
+  height: 56rpx;
+  font-size: 64rpx;
+  font-family: DINAlternate-Bold, DINAlternate;
+  font-weight: bold;
+  line-height: 56rpx;
+}
+.discount-float{
+  margin-top: 16rpx;
+  height: 40rpx;
+  font-size: 40rpx;
+  font-family: DINAlternate-Bold, DINAlternate;
+  font-weight: bold;
+  line-height: 40rpx;
+}
+.discount-unitText{
+  margin-top: 20rpx;
+  margin-left: 4rpx;
+  height: 32rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Bold, PingFang SC;
+  font-weight: bold;
+  line-height: 32rpx;
+}

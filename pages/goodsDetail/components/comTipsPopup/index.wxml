@@ -1,0 +1,12 @@
+<!--components/comConfirmPopup/index.wxml-->
+<van-overlay show="{{ show }}" custom-style="background: rgba(41, 37, 34, 0.5);">
+  <view class="confim-dialog">
+    <view class="confim-dialog-message">
+      <text>{{msg}}</text>
+    </view>
+    <view class="confim-dialog-footer">
+      <view class="confim-dialog-btn" bindtap="onClose">我知道了</view>
+    </view>
+  </view>
+</van-overlay>
+

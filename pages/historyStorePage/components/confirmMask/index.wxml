@@ -1,0 +1,13 @@
+<!--components/authPhoneTip/index.wxml-->
+<van-overlay show="{{$state.isConfirmMask}}" bind:click="onClickHide">
+  <view class="wrapper">
+    <view class="inner-wrapper" catch:tap="noop">
+    <view class="desc">确定切换到此门店吗？</view>
+    <view class="footer">
+      <view class="cancle" bindtap="onClickHide">取消</view>
+      <view class="line"></view>
+      <view class="ok" bindtap="ok">确认</view>
+    </view>
+    </view>
+  </view>
+</van-overlay>

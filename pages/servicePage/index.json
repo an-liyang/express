@@ -1,0 +1,17 @@
+{
+  "backgroundColor":"#FF7700",
+  "backgroundColorBottom":"#ffffff",
+  "backgroundColorTop":"#FF7700",
+  "usingComponents": {
+    "authPhone": "./../../components/authPhoneTip/index",
+    "goods-list":"../../components/goodsListItem/index",
+    "comNav":"./../../components/comTopNav/index",
+    "loading":"./../../components/loading/index",
+    "coupon-list":"./components/coupon-list/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarBackgroundColor": "#FF7700",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 20
+}

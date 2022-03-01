@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText":"优惠券详情",
+  "navigationBarBackgroundColor": "#ffffff",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "couponDetailItem":"./components/couponDetailItem/index",
+    "couponTextDesc":"./components/couponTextDesc/index",
+    "couponStoreInfo":"./components/couponStoreInfo/index",
+    "loading":"./../../components/loading/index"
+  }
+}

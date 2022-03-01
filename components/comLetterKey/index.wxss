@@ -1,0 +1,123 @@
+/* components/comLetterKey/index.wxss */
+.letter-box{
+  width: 100%;
+  height: 524rpx;
+  background: #D5D8DE;
+  padding-top: 16rpx;
+  padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+  /* box-sizing: border-box; */
+}
+.btn-confirm{
+  height: 72rpx;
+  background: #F2F3F5;
+  text-align: right;
+  padding-right: 24rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FF8833;
+  line-height: 72rpx;
+}
+.content-text,
+.content-num,
+.content-letter .one,
+.content-letter .two,
+.content-letter .footer{
+  display: flex;
+  justify-content: center;
+}
+.content-text .item{
+  display: inline-block;
+  width: 138rpx;
+  height: 84rpx;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 0 0 #8A8D90;
+  border-radius: 8rpx;
+  margin: 0 6rpx;
+  line-height: 84rpx;
+  text-align: center;
+  font-size: 40rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #030303;
+}
+.content-num .item,
+.content-letter .item{
+  display: inline-block;
+  width: 64rpx;
+  height: 84rpx;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 0 0 #8A8D90;
+  border-radius: 8rpx;
+  margin: 0 6rpx;
+  line-height: 84rpx;
+  text-align: center;
+  font-size: 40rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #030303;
+}
+.content-num .item:nth-child(2n){
+  margin-right: 4rpx;
+}
+.one .item:nth-child(2n),
+.two .item:nth-child(2n-1),
+.three .item:nth-child(2n){
+  margin-right: 4rpx;
+}
+.content-num .item:first-child,
+.one .item:first-child,
+.two .item:first-child{
+  margin-left: 0;
+}
+.content-num .item:last-child,
+.one .item:last-child,
+.two .item:last-child{
+  margin-right: 0;
+}
+
+.btn-aside,
+.btn-del{
+  display: inline-block;
+  width: 100rpx;
+  height: 84rpx;
+  background: #B2B8C2;
+  box-shadow: 0 2rpx 0 0 #8A8D90;
+  border-radius: 8rpx;
+  line-height: 84rpx;
+  text-align: center;
+}
+
+.btn-aside .img,
+.btn-del .img{
+  width: 42rpx;
+  height: 42rpx;
+  vertical-align: middle;
+}
+.content-text,
+.content-num,
+.content-letter .one,
+.content-letter .two{
+  margin-bottom: 24rpx;
+}
+/* .content-letter .two{
+  padding-left: 38rpx;
+} */
+/* .footer{
+  display: flex;
+  padding-left: 6rpx;
+} */
+.btn-aside{
+  margin-right: 6rpx;
+}
+.btn-del{
+  margin-left: 6rpx;
+}
+.letter-box .active{
+  background: #FF8833;
+  box-shadow: 0 4rpx 4rpx 0 rgba(56, 70, 140, 0.1);
+  color: #FFFFFF;
+}
+
+

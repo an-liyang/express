@@ -1,0 +1,83 @@
+/* pages/orderDetail/components/comShopDecorationInfo/index.wxss */
+.shop-decoration{
+  position: fixed;
+  bottom:0rpx;
+  left:0rpx;
+  width:100%;
+  /* height:112rpx; */
+  padding:16rpx 24rpx;
+  padding-bottom: calc((env(safe-area-inset-bottom) / 2) + 16rpx);
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+.shop-decoration-btn{
+  width:100%;
+  height: 80rpx;
+  background: #EBECF0;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  font-family: 'PingFangSC-Bold, PingFang SC';
+  font-weight: bold;
+  color: #A3A09D;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.un-pay{
+  background: #EBECF0 !important;
+  color: #A3A09D !important;
+  border: 2px solid #EBECF0 !important;
+}
+.continue-pay{
+  width:100%;
+  /* height:100%; */
+  height: 80rpx;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  flex-direction: row;
+}
+.pay-count{
+  flex:1;
+  text-align:left;
+  font-size: 36rpx;
+  font-family: DINAlternate-Bold, DINAlternate;
+  font-weight: bold;
+  color: #F5222D;
+}
+.pay-btn{
+  width:186rpx;
+  height:80rpx; 
+  background: #FF8833;
+  border-radius: 44rpx;
+  border: 2px solid #FF8833;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  font-family: PingFangSC-Bold, PingFang SC;
+  font-weight: bold;
+  color: #FFFFFF;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+  /* 现价 */
+  .current-price{
+    height: 42rpx;
+    font-family: DINAlternate-Bold, DINAlternate;
+    font-weight: bold;
+    color: #F5222D;
+  }
+  /* 单位 */
+  .current-price .price-unit{
+    font-size: 24rpx;
+  }
+  /* 整数 */
+  .current-price .price-int{
+    font-size: 36rpx;
+    line-height: 42rpx;
+  }
+  /* 小数 */
+  .current-price .price-float{
+    font-size: 24rpx;
+  }

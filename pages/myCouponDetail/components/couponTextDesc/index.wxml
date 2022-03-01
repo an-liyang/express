@@ -1,0 +1,25 @@
+<!--pages/myCouponDetail/components/couponTextDesc/index.wxml-->
+<view class="usage">
+  <view class="desc">使用方式</view>
+  <view class="usage-con" wx:if="{{obj.couponUseMethod==1}}">本券在线下单专用 (仅可使用一次)</view>
+  <view class="usage-con" wx:elif="{{obj.couponUseMethod.length>1}}">本券到店核销，在线下单均可使用 (仅可使用一次)</view>
+  <view class="usage-con" wx:elif="{{obj.couponUseMethod==0}}">本券到店核销专用 (仅可使用一次)</view>
+</view>
+<block wx:if="{{obj.couponUseMethod==0||obj.couponUseMethod.length>1}}">
+  <view class="desc">到店使用说明</view>
+<veiw class="desc-two">适用类目</veiw>
+<view class="to-store-type-box" wx:if="{{obj.categoryType==2 && obj.tenantMainBusiness && obj.tenantMainBusiness.length>0}}">
+  <view class="to-store-type-item" wx:for="{{obj.tenantMainBusiness}}" wx:key="unique" wx:if="{{item != null || item != 'null'}}">{{item}}</view>
+</view>
+<view class="notice-item" wx:elif="{{obj.categoryType==1}}"> · 本店服务通用</view>
+<view class="notice-item" wx:elif="{{!obj.tenantMainBusiness || obj.tenantMainBusiness.length<=0 || !obj.categoryType}}">· 请电话咨询门店</view>
+<!-- 注意事项 -->
+<view class="desc-two">注意事项</view>
+<view class="notice-item" wx:for="{{obj.templateAttention}}" wx:key="unique"> · {{item}}</view>
+</block>
+<block wx:if="{{obj.couponUseMethod==1||obj.couponUseMethod.length>1}}">
+<view class="desc" >在线使用说明</view>
+<view class="notice-item">· 每次下单只能使用一张优惠券</view>
+<view class="notice-item">· 用券下单后，未支付成功导致订单关闭，不退还优惠券</view>
+</block>
+

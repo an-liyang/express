@@ -1,0 +1,50 @@
+/* components/authPhoneTip/index.wxss */
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.inner-wrapper {
+	width: 560rpx;
+	padding: 40rpx 0rpx 0rpx 0rpx;
+	box-sizing: border-box;
+	height: 246rpx;
+	background: #ffffff;
+	border-radius: 8rpx;
+}
+.desc {
+	font-size: 30rpx;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	text-align:center;
+	color: #292522;
+	line-height: 48rpx;
+	padding: 0rpx 40rpx 30rpx 40rpx;
+	box-sizing: border-box;
+	border-bottom: 1rpx solid #e5e5e5;
+}
+.btn {
+	background: transparent;
+	padding: 0rpx;
+	margin: 0rpx;
+	border-radius: 0rpx;
+	width: 100%;
+	height: 78rpx;
+	font-size: 32rpx;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #ff7700;
+	line-height: 78rpx;
+	z-index:88;
+}
+.btn::after {
+	/*button的边框样式是通过::after方式实现的*/
+	border: none;
+}
+.btn.button-hover {
+	/*点击后样式*/
+	color: #000;
+	background-color: rgb(247, 247, 247);
+}

@@ -1,0 +1,26 @@
+var filter = {
+	numberToFixed: function (value) {
+		if (value) {
+			return value.toFixed(2)
+		}
+		else { return value }
+	},
+	judgeCouponType:function(obj){
+		var setVal=''
+		if(obj.couponCode && obj.couponType==1 && obj.deductionAmount){
+			setVal= '-￥'+obj.deductionAmount
+		}else if(obj.couponCode &&obj.discountRatio){
+			setVal=obj.discountRatio+'折'
+		}else if(!obj.couponCode){
+			setVal='暂无可用'
+		}else{
+			setVal='未选择'
+		}
+		return setVal
+	}
+}
+// 导出对外暴露的属性
+module.exports = {
+	numberToFixed: filter.numberToFixed,
+	judgeCouponType:filter.judgeCouponType
+}

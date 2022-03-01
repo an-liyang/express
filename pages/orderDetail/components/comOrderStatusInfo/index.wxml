@@ -1,0 +1,21 @@
+<!--pages/orderDetail/components/comOrderStatusInfo/index.wxml-->
+<view class="order-status">
+  <block wx:if="{{status=='80'||status=='82'}}">
+    <view class="set-box"><image class="order-status-icon" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/order-detail-close-icon.png"></image>已关闭</view>
+    <view class="s-tip">{{objData.isManualClosed?'商家关闭订单，如有疑议请咨询门店':'超时未支付'}}</view>
+  </block>
+  <view class="set-box" wx:elif="{{status=='20'}}">
+    <image class="order-status-icon" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/order-detail-time-icon.png"></image>待服务
+  </view>
+  <block wx:elif="{{status=='83'}}">
+    <view class="set-box">
+      <image class="order-status-icon" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/order-detail-finish-icon.png"></image>已完成
+    </view>
+    <view class="s-tip" wx:if="{objData.isManualWrite}">商家确认完成订单，如有疑议请咨询门店</view>
+  </block>
+    <view class="set-box" wx:elif="{{status=='10'}}">
+      <image class="order-status-icon" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/order-detail-time-icon.png"></image>待支付 <text style="margin-left:16rpx;">{{$state.expireTime}}</text>
+    </view>
+    <!-- $state.orderDetailData.orderExpireTime -->
+  <view wx:else class="no-net">0</view>
+</view>

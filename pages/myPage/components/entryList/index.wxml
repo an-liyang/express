@@ -1,0 +1,27 @@
+<!--pages/myPage/components/entryList/index.wxml-->
+<wxs src="./dealTools.wxs" module="dealTool"></wxs>
+<view class="info-list">
+    <view class="coupon-info" bindtap="toCoupon" data-funName="toCoupon">
+      <view class="car-entry-desc">我的优惠券</view>
+      <view class="car-entry-num">
+        {{dealTool.calcCouponNum(centerInfoData.myUsableCouponCount)}}
+        <image class="arrow mgl16" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/to-right-arrow.png"></image>
+      </view>
+    </view>
+    <view class="line-border"></view>
+    <view class="car-info" bindtap="toCarPage" data-funName="toCarPage">
+    <view class="car-entry-desc">我的车辆</view>
+    <view class="car-entry-num">
+        {{centerInfoData.myCarCount?centerInfoData.myCarCount:''}}
+        <image class="arrow mgl16" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/to-right-arrow.png"></image>
+      </view>
+    </view>
+    <view class="line-border"></view>
+    <view class="to-store-info" bindtap="toHisPage">
+      <view class="car-entry-desc">切换门店</view>
+      <view class="car-entry-num">
+        {{centerInfoData.myBussinessCount?centerInfoData.myBussinessCount:''}}
+        <image class="arrow mgl16" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/to-right-arrow.png"></image>
+      </view>
+    </view>
+  </view>

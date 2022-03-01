@@ -1,0 +1,14 @@
+<!--pages/myCouponDetail/components/couponStoreInfo/index.wxml-->
+<view class="store-info">
+  <view class="store-title">{{obj.tenantName?obj.tenantName:''}}</view>
+  <view class="store-time">营业时间{{obj.tenantBussinessHours?obj.tenantBussinessHours:''}}</view>
+  <view class="store-footer">
+    <view class="store-address" wx:if="{{obj.tenantDetailedAddress && obj.tenantDetailedAddress!='null'}}">
+      {{obj.tenantDetailedAddress?obj.tenantDetailedAddress:''}}
+    </view>
+    <view class="store-icon">
+      <image wx:if="{{obj.tenantDetailedAddress && obj.tenantDetailedAddress!='null'}}" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/locationi-icon.png" class="store-local" bindtap='gotoMap'></image>
+      <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/phone-icon.png" class="store-phone" bindtap="handleToCall"></image>
+    </view>
+  </view>
+</view>

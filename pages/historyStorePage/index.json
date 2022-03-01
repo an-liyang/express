@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText":"切换门店",
+  "disableScroll": true,
+  "usingComponents": {
+    "comNav":"./../../components/comTopNav/index",
+    "confirmMask":"./components/confirmMask/index",
+    "loading":"./../../components/loading/index",
+    "scrollView":"./../../components/comScorllView/index"
+  }
+}

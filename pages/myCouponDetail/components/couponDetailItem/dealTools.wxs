@@ -1,0 +1,63 @@
+var getRightTopImgUrl = function(type) {
+  switch (type){
+    case 1:
+      return 'http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/shiyong-icon.png'
+    case 2:
+      return "http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/hexiao-icon.png"
+    case 3:
+      return "http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/guoqi-icon.png"
+    case 4:
+      return "http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/zuofei-icon.png"
+    default:
+      return ''
+  }
+}
+var getLeftTopImgUrl= function(obj){
+  var getUrl=''
+  if(obj['useCouponStatus']==0){
+    if(obj['couponUseMethod']==0){
+      getUrl='http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/store-active-icon.png'//到店核销
+    }else if(obj['couponUseMethod']==1){
+      getUrl='http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/online-active-icon.png'//线上
+    }else if(obj['couponUseMethod'].length>1){
+      getUrl='http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/both-active-icon.png'//所有
+    }
+  }else{
+    if(obj['couponUseMethod']==0){
+      getUrl='http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/store-icon.png'//到店核销
+    }else if(obj['couponUseMethod']==1){
+      getUrl='http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/online-icon.png'//线上
+    }else if(obj['couponUseMethod'].length>1){
+      getUrl='http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/both-icon.png'//所有
+    }
+  }
+  return getUrl;
+}
+var goodsIsEnable=function(type){
+  switch(type){
+    case 0:
+      return null
+    case 1:
+      return '部分商品可用'
+    case 2:
+      return '部分商品可用'
+    default:
+      return null
+  }
+}
+var numToString=function(val,index){
+  var dealVal=val.toFixed(2).toString();
+  return dealVal.split('.')[index]
+}
+var dealDate = function(val) {
+  if(val && val.indexOf('-') != -1){
+    return val.split('-').join('.')
+  }
+}
+module.exports={
+  getRightTopImgUrl: getRightTopImgUrl,
+  getLeftTopImgUrl:getLeftTopImgUrl,
+  goodsIsEnable:goodsIsEnable,
+  numToString:numToString,
+  dealDate:dealDate
+}

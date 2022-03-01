@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/servicePage/index",
+    "pages/orderList/index",
+    "pages/orderDetail/index",
+    "pages/payOrder/index",
+    "pages/freeOrder/index",
+    "pages/boundCar/index",
+    "pages/selectCarModels/index",
+    "pages/myLoveCar/index",
+    "pages/goodsDetail/index",
+    "pages/myPage/index",
+    "pages/successPay/index",
+    "pages/historyStorePage/index",
+    "pages/myCoupon/index",
+    "pages/couponCenter/index",
+    "pages/couponDetail/index",
+    "pages/myCouponDetail/index",
+    "pages/couponAvailableGoods/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/servicePage/index",
+        "text": "服务",
+        "iconPath": "images/service/service-icon.png",
+        "selectedIconPath": "images/service/service-icon-active.png"
+      },
+      {
+        "pagePath": "pages/myPage/index",
+        "text": "我的",
+        "iconPath": "images/service/my-icon.png",
+        "selectedIconPath": "images/service/my-icon-active.png"
+      }
+    ],
+    "color": "#363838",
+    "selectedColor": "#4B85FF",
+    "backgroundColor": "#fff",
+    "borderStyle": "white"
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-count-down": "@vant/weapp/count-down/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-sticky": "@vant/weapp/sticky/index"
+  },
+  "functionalPages": {
+    "independent": true
+  },
+  "sitemapLocation": "sitemap.json"
+}

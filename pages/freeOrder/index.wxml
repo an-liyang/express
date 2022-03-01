@@ -1,0 +1,16 @@
+<!--pages/freeOrder/index.wxml-->
+<comNav vTitle="确认订单" curPageName="freeOrder"></comNav>
+<view class="free-order" bindtap="handleSubOrderPage">
+<!-- 表单信息 -->
+<comSubmitOrder id="letter"></comSubmitOrder>
+<!-- 收货方式 -->
+<comReceiving objData="{{$state.orderDetailData}}"></comReceiving>
+<!-- 店铺信息 -->
+<comStore objData="{{$state.orderDetailData}}"></comStore>
+<!-- 车信息 status=='free'-->
+<comCar objData="{{$state.orderDetailData}}"></comCar>
+<!-- button -->
+<view class="footer-btn-box">
+  <view class="{{$state.createOrderParams.userName && $state.createOrderParams.orderPhone ?'footer-baoming':'footer-baoming un-active'}}" bindtap="handleCreateFreeOrder">立即报名</view>
+</view>
+</view>

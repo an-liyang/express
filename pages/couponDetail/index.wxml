@@ -1,0 +1,51 @@
+<!--pages/couponDetail/index.wxml-->
+
+<loading></loading>
+<view class="coupon-detail" wx:if="{{!$state.isShowLoading}}">
+  <view class="detail-template">
+    <couponDetailItem couponItem="{{couponDetail}}"></couponDetailItem>
+  </view>
+  <!-- 使用方式 -->
+  <view class="detail-item">
+    <view class="title">使用方式</view>
+    <!-- 0 到店核销 1 线上折扣 0,1 全部 -->
+    <view class="content">
+      {{couponDetail.couponUseMethod==0?'本券到店核销专用  (仅可使用一次)':
+      couponDetail.couponUseMethod==1?'本券在线下单专用  (仅可使用一次)':
+      '本券到店核销，在线下单均可使用 (仅可使用一次)'}}
+    </view>
+  </view>
+  <!-- 到店使用说明 -->
+  <view class="detail-item" wx:if="{{couponDetail.couponUseMethod!=1}}">
+    <view class="title">到店使用说明</view>
+    <view class="content">
+      <view class="content-title">适用类目</view>
+      <!-- 1 通用 2 部分可用 -->
+      <view wx:if="{{couponDetail.categoryType==1}}">·\t店内服务通用</view>
+      <view wx:if="{{couponDetail.categoryType==2&& couponDetail.tenantMainBusiness.length<=0}}">·\t请电话咨询门店</view>
+      <view class="category" wx:if="{{couponDetail.categoryType==2&&couponDetail.tenantMainBusiness.length>0}}">
+        <text wx:for="{{couponDetail.tenantMainBusiness}}" wx:key="index" class="category-item" wx:if="{{item!=null||item!='null'}}">{{item}}</text>
+      </view>
+      <view class="content-title" style="margin-top:8rpx" wx:if="{{couponDetail.templateAttention.length>0}}">注意事项</view>
+      <view wx:for="{{couponDetail.templateAttention}}" wx:key="index">·\t{{item}}</view>
+    </view>
+  </view>
+  <!-- 在线使用说明 -->
+  <view class="detail-item online-tips" wx:if="{{couponDetail.couponUseMethod!=0}}">
+    <view class="title">在线使用说明</view>
+    <view class="content">
+      <view>·\t每次下单只能使用一张优惠券</view>
+      <view>·\t用券下单后，未支付成功导致订单关闭，不退还优惠券</view>
+    </view>
+  </view>
+  <!-- 店铺信息 -->
+  <view class="store-info" style="padding:0 16rpx">
+    <view class="line"></view>
+    <comStore objData="{{$state.storeInfo}}" isNoShadow="{{true}}"></comStore>
+  </view>
+  <view class="footer-btn">
+    <view class="btn" wx:if="{{couponDetail.couponUseMethod!=0&&couponDetail.isReceived}}" bindtap="toUseCoupon"><text>去使用</text></view>
+    <view class="btn" wx:else bindtap="toRecived"><text>立即领取</text></view>
+  </view>
+</view>
+<authPhone wx:if="{{$state.isTipMask==true}}" bindupdatePageFunc="updatePageFunc"></authPhone>

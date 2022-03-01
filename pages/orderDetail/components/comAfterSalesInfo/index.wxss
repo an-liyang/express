@@ -1,0 +1,26 @@
+/* pages/orderDetail/components/comAfterSalesInfo/index.wxss */
+.after-sales{
+  margin-top:24rpx;
+  width:100%;
+  padding:26rpx 24rpx 0rpx 24rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 8rpx 24rpx 0rpx rgba(41, 37, 34, 0.02);
+  border-radius: 8rpx;
+  box-sizing: border-box;
+}
+.head-title{
+  margin-bottom:20rpx;
+  font-size: 28rpx;
+  font-family: 'PingFangSC-Bold, PingFang SC';
+  font-weight: bold;
+  color: #292522;
+  line-height: 40rpx;
+}
+.main-desc{
+  padding-bottom:20rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #A3A09D;
+  line-height: 34rpx;
+}

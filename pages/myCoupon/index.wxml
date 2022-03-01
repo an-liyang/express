@@ -1,0 +1,29 @@
+<!--pages/myCoupon/index.wxml-->
+<view class="my-coupon">
+<view class="coupon-head">
+<view wx:for="{{headTitleList}}" wx:key="unique" class="{{curClick==item.name?'head-item head-item-active':'head-item'}}" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="handleToggle">
+  {{item.desc}}
+  <view class="{{item.desc=='可用'?'item-active':'item-unable-active'}}" wx:if="{{curClick==item.name}}"></view>
+</view>
+</view>
+<view class="coupon-con" wx:if="{{couponList.length>0}}">
+  <scrollView triggered="{{curPullDownStatus}}" height="{{1334}}" bindrefreshEvent="pullDownEvent" bindbottmRefreshEvent="loadTopEvent">
+    <view style="margin-top:24rpx;" wx:for="{{couponList}}" wx:key="unique">
+      <couponItem obj="{{item}}"></couponItem>
+    </view>
+    <view class="load-finish" wx:if="{{$state.isOrderLoad && couponList.length>0}}">—— 已加载全部内容 ——</view>
+  </scrollView>
+</view>
+<view class="no-data" wx:elif="{{couponList.length<=0 && $state.isRequest && !$state.isShowLoading}}">
+  <image class="no-data-img" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/no-coupon-icon.png"></image>
+  <view class="no-data-desc">暂无优惠券</view>
+  <view class="no-data-btn" bindtap="toCouponCenter">去领券</view>
+</view>
+<view class="no-data" wx:elif="{{$state.isCurNoNetwork}}">
+  <image class="no-data-img" src="./../../images/no-network.png"></image>
+  <text class="no-data-desc">网络开小差了</text>
+  <view class="re-load" bindtap="reLoad" bindtap="reLoad">重新加载</view>
+</view>
+<view class="footer-btn" wx:if="{{couponList.length>0}}" bindtap="toCouponCenter">领券中心</view>
+</view>
+<loading></loading>

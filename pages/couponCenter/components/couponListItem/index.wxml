@@ -1,0 +1,44 @@
+<!--components/discountCouponItem/index.wxml-->
+<!-- 引入格式化函数 -->
+<wxs src="../../../../utils/format.wxs" module="fn"></wxs>
+<view class="discount-coupon-item">
+  <!-- 0 到点核销 1 线上折扣 0,1 全部 -->
+  <image src="{{couponItem.couponUseMethod==0?tips1:couponItem.couponUseMethod==1?tips2:tips3}}" class="tips {{couponItem.couponUseMethod.length>1?'w65':'w56'}}"></image>
+  <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/coupon-active-bkg.png" class="bg"></image>
+  <image src="http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/lingqu-icon.png" class="received" wx:if="{{couponItem.isReceived}}"></image>
+  <!-- 1 满减 2 折扣 -->
+  <!-- 满减金额不足万 -->
+  <view class="discount" wx:if="{{couponItem.couponType==1 && couponItem.deductionAmount}}">
+    <text class="discount-unit">￥</text>
+    <text class="discount-int {{couponItem.deductionAmount>=10000?'fs20':'fs32'}}">{{fn.formatValue(couponItem.deductionAmount)[0]}}</text>
+    <text class="discount-float" wx:if="{{fn.formatValue(couponItem.deductionAmount)[1]}}">.{{fn.formatValue(couponItem.deductionAmount)[1]}}</text>
+  </view>
+  <!-- 满减金额超过万 -->
+  <!-- <view class="discount" wx:if="{{couponItem.couponType==1&&fn.formatValue(couponItem.deductionAmount)[0].length>4}}">
+    <text class="discount-unit">￥</text>
+    <text class="discount-int">{{fn.formatValue((couponItem.deductionAmount/10000),true)[0]}}</text>
+    <text class="discount-float" wx:if="{{fn.formatValue((couponItem.deductionAmount/10000),true)[1]}}">.{{fn.formatValue((couponItem.deductionAmount/10000),true)[1]}}</text>
+    <text class="discount-unitText">万</text>
+  </view> -->
+  <!-- 折扣 -->
+  <view class="discount" wx:if="{{couponItem.couponType==2}}">
+    <text class="discount-int">{{fn.formatValue(couponItem.discountRatio)[0]}}</text>
+    <text class="discount-float" wx:if="{{fn.formatValue(couponItem.discountRatio)[1]}}">.{{fn.formatValue(couponItem.discountRatio)[1]}}</text>
+    <text class="discount-unitText">折</text>
+  </view>
+  <view class="discount-info">
+    <view class="condition" wx:if="{{couponItem.couponType==1}}">满{{couponItem.metAmount}}元可用</view>
+    <!--  0 全部商品可用 1 部分商品可用 2 部分商品不可用 -->
+    <view class="limit" wx:if="{{couponItem.commodityType!=null && couponItem.commodityType!=0}}">部分商品可用</view>
+    <!-- 0 领取后天生效 1领取后月生效 2 固定期限 -->
+    <view class="limit" wx:if="{{couponItem.validityType==2}}">{{fn.dealDate(couponItem.couponStartTime)}}-{{fn.dealDate(couponItem.couponEndTime)}}</view>
+    <view class="limit" wx:if="{{couponItem.validityType!=2}}">领券后{{couponItem.validityCount}}{{couponItem.validityType==0?'天':'个月'}}内有效</view>
+  </view>
+  <view class="discount-btn {{couponItem.isReceived&&couponItem.couponUseMethod!=0?'discount-btn-received':''}}" wx:if="{{couponItem.isShowBtn}}">
+    <text wx:if="{{couponItem.isReceived&&couponItem.couponUseMethod!=0}}" 
+    data-couponCode="{{couponItem.couponCode}}" 
+    data-templateId="{{couponItem.templateId}}" 
+    catchtap="toUseCoupon">去使用</text>
+    <text wx:else  catchtap="toReceive" data-id="{{couponItem.templateId}}">立即领取</text>
+  </view>
+</view>

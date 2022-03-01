@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "confirm-pop-up": "./components/comConfirmPopup/index",
+    "comNav":"./../../components/comTopNav/index",
+    "authPhone": "./../../components/authPhoneTip/index",
+    "loading":"./../../components/loading/index"
+  },
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "disableScroll": true,
+  "backgroundColor":"#FFFFFF"
+}

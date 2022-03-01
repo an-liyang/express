@@ -1,0 +1,73 @@
+<!--pages/orderDetail/components/comCarInfo/index.wxml-->
+<wxs module="filter" src="./foFixed.wxs"></wxs>
+<wxs src="../../utils/format.wxs" module="fn"></wxs>
+<view class="car-info">
+  <view class="car-info-top">
+    <image wx:if="{{objData.spuLogo}}" src="{{objData.spuLogo}}" class="car-info-top-img"></image>
+    <view wx:else class="car-info-top-img"></view>
+    <view class="car-info-top-desc">
+      <view class="car-desc-title">{{objData.spuTitle}}</view>
+      <view class="car-desc-box" wx:if="{{objData.skuSalesSpecifications && objData.skuSalesSpecifications.length>0}}">
+        <view class="car-desc-one" wx:for="{{objData.skuSalesSpecifications}}" wx:key="unique">{{item!="null"?item:''}}</view>
+      </view>
+      <view wx:if="{{objData.spuType==1}}" class="car-price car-price-orange">
+        <text>到店立享优惠价￥</text>
+        <text style="font-family: DINAlternate-Bold, DINAlternate;">{{objData.disCounts}}</text>
+        <!-- <text>{{filter.numberToFixed(objData.skuSalesOldPrice+objData.disCounts)}}</text> -->
+      </view>
+      <!-- <view wx:else class="car-price" style="font-family: DINAlternate-Bold, DINAlternate;">
+        <text>￥</text>
+        <text>{{objData.skuSalesPrice}}</text>
+      </view> -->
+    </view>
+  </view>
+  <view class="car-info-footer-orange" wx:if="{{objData.spuType==1 &&(status=='20'||status=='83')}}">
+    预约成功后，请尽快去门店使用，逾期作废
+  </view>
+  <view class="car-info-footer-orange" wx:elif="{{objData.spuType==1}}">
+    商品价格是到店立享优惠的价格，报名成功后，将为您保存此次优惠机会，请尽快到门店使用，逾期作废。
+  </view>
+  <view class="car-info-mid" wx:else>
+    <view class="car-info-item">
+      <view class="car-info-item-key">数量</view>
+      <!-- style="height:{{cusnavH}}rpx; line-height:{{cusnavH}}rpx;width:100%;box-sizing:border-box;" -->
+      <view class="car-info-item-val" style="font-family: DINAlternate-Bold, DINAlternate;padding-right: {{objData.payStatus?0:32}}rpx;">{{objData.amount}}</view>
+    </view>
+    <view class="car-info-item"  wx:if="{{objData.skuSalesOldPrice}}">
+      <view class="car-info-item-key">商品总价</view>
+      <view class="car-info-item-val" style="font-family: DINAlternate-Bold, DINAlternate;padding-right: {{objData.payStatus?0:32}}rpx;">￥{{objData.skuSalesPrice}}</view>
+    </view>
+    <!-- <view class="car-info-item" wx:if="{{objData.skuSalesOldPrice}}">
+      <view class="car-info-item-key">优惠</view>
+      <view class="car-info-item-val" style="font-family: DINAlternate-Bold, DINAlternate;">-￥{{filter.numberToFixed(objData.disCounts>=0?objData.disCounts:objData.disCounts*-1)}}</view>
+    </view> -->
+    <view class="car-info-item" wx:if="{{$state.getSpuType==2||objData.spuType==2}}">
+      <view class="car-info-item-key set-center" wx:if="{{(objData.payStatus != 'null' && objData.payStatus != null && objData.couponAmount != null)|| !objData.payStatus}}">优惠券
+        <view class="coupon-label" wx:if="{{$state.payOderCouponList.length>0 && !objData.payStatus}}">可用{{$state.payOderCouponList.length}}张</view>
+      </view>
+      <!-- 券细节展示处理 -->
+      <view wx:if="{{objData.payStatus}}" class="car-info-item-val coupon-active">{{objData.couponAmount !=null?'-￥':''}}{{objData.couponAmount!=null?objData.couponAmount:''}}</view>
+      <view wx:else class="{{!$state.payOrderCouponDefaultObj.couponCode||!$state.payOrderCouponDefaultClick?'car-info-item-val':'car-info-item-val coupon-active'}}" style="display:flex;align-items:center;" bindtap="handleClickCoupon">
+        <block wx:if="{{$state.payOrderCouponDefaultObj.couponCode && $state.payOrderCouponDefaultObj.couponType==1 && $state.payOrderCouponDefaultObj.deductionAmount && $state.payOrderCouponDefaultClick==$state.payOrderCouponDefaultObj.couponCode}}">-￥{{$state.payOrderCouponDefaultObj.deductionAmount}}</block>
+        <block wx:elif="{{$state.payOrderCouponDefaultObj.couponCode && $state.payOrderCouponDefaultObj.discountRatio}}"><block wx:if="{{$state.payOrderCouponDefaultObj.amoutOrder !=null}}">-￥{{$state.payOrderCouponDefaultObj.amoutOrder}}</block>({{$state.payOrderCouponDefaultObj.discountRatio}}折)</block>
+        <block wx:elif="{{$state.payOderCouponList.length<=0}}">暂无可用</block>
+        <block wx:else>未选择</block>
+        <image class="coupon-arrow" src="http://img1.bitauto.com/das/chehou_sass/sass_wx/coupon/pay-order-coupon-arrow.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="car-info-footer" wx:if="{{objData.spuType!=1}}">
+    <!-- 去下单页面，没有订单状态，此时默认给个-2 -->
+    <text class="footer-price" style="font-family: DINAlternate-Bold, DINAlternate;">{{status=='20'||status=='83' || status=='-2'?'实付款:':'应支付:'}}</text>
+    <!-- <text class="price-num">￥{{filter.numberToFixed(objData.orderAmount)}}</text> -->
+    <view class="current-price" wx:if="{{objData.orderAmount}}" style="font-family: DINAlternate-Bold, DINAlternate;">
+      <text class="price-unit">￥</text>
+      <text class="price-int">{{fn.formatValue(objData.orderAmount)[0]}}</text>
+      <text wx:if="{{fn.formatValue(objData.orderAmount)[1]}}">.</text>
+      <text class="price-float">{{fn.formatValue(objData.orderAmount)[1]}}</text>
+    </view>
+  </view>
+  <!-- <view class="mb24"></view> -->
+</view>
+
+

@@ -1,0 +1,61 @@
+/* pages/myCouponDetail/components/couponStoreInfo/index.wxss */
+.store-info{
+  border-top:2rpx solid #F5F3F2;
+  width:100%;
+  margin-top:24rpx;
+  padding:24rpx 0rpx 40rpx 0rpx;
+  box-sizing: border-box;
+}
+.store-title{
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: bold;
+  color: #292522;
+  line-height: 48rpx;
+  text-align:left;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.store-time{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #A3A09D;
+  line-height: 36rpx;
+  text-align:left;
+  margin-bottom:16rpx;
+}
+.store-footer{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.store-address{
+  flex:1;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #5C5A58;
+  line-height: 36rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.store-icon{
+  flex:0 0 200rpx;
+  padding-left:40rpx;
+  box-sizing: border-box;
+}
+.store-local{
+  width:64rpx;
+  height:64rpx;
+  margin-right:32rpx;
+}
+.store-phone{
+  width:64rpx;
+  height:64rpx;
+}

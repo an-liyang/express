@@ -1,0 +1,141 @@
+/* components/comSubmitOrder/index.wxss */
+.submit-order{
+  width:100%;
+  position:relative;
+  padding-bottom:24rpx;
+  box-sizing: border-box;
+  /* margin-top:24rpx; */
+  margin-bottom:24rpx;
+  background: #FFFFFF;
+  box-shadow: 0 8rpx 24rpx 0 rgba(41, 37, 34, 0.02);
+  border-radius: 8rpx;
+}
+.arrow{
+  width:24rpx;
+  height:16rpx;
+  display:inline-block;
+  margin-left:4rpx;
+}
+.submit-head{
+  width:100%;
+  height: 40rpx;
+  font-size: 28rpx;
+  padding:26rpx 24rpx 24rpx 24rpx;
+  box-sizing: border-box;
+  font-family: PingFangSC-Bold, PingFang SC;
+  font-weight: bold;
+  color: #292522;
+  line-height: 40rpx;
+  text-align:left;
+  margin-bottom:24rpx;
+}
+/* .reg-item{
+  width:100%;
+} */
+.car-item{
+  padding:0rpx 24rpx 0rpx 24rpx;
+  width:100%;
+  height:88rpx;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  box-sizing: border-box;
+}
+.beizhu-item{
+  padding:0rpx 0rpx 0rpx 24rpx;
+  width:100%;
+  height:88rpx;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  box-sizing: border-box;
+}
+.car-item-key{
+width:144rpx;
+height:100%;
+font-size: 28rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #292522;
+text-align:left;
+display:flex;
+/* justify-content: flex-start; */
+align-items:center;
+}
+.car-item-box{
+  position: relative;
+  height:100%;
+  flex:1;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+}
+/* 光标样式 */
+.car-item-box .cursor-pic{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 37rpx;
+  width: 4rpx;
+}
+.car-item-province{
+  /* width:100%; */
+  height:100%;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #292522;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+  margin-right:20rpx;
+}
+.car-num{
+  width: 180rpx;
+  text-align: right;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #A3A09D;
+}
+.input-class{
+  /* width:180rpx; */
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #292522;
+  text-align:right;
+}
+.beizhu{
+  width:514rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #292522;
+  text-align:right;
+}
+.reg-input-class{
+  width:180rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #292522;
+  text-align:right;
+}
+.reg-item{
+  /* width:100%; */
+  padding-left:6rpx;
+  /* box-sizing: border-box; */
+}
+.line-box{
+  width:100%;
+  padding:0rpx 24rpx;
+  box-sizing: border-box;
+}
+.line{
+  width: 100%;
+  height: 2rpx;
+  background: #F5F3F2;
+}

@@ -1,0 +1,19 @@
+/* pages/goodsDetail/components/goodsAvaCoupon/index.wxss */
+.status-tips{
+  padding: 16rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.status-tips .text{
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #CCC8C4;
+  margin: 0 16rpx;
+}
+.status-tips .line{
+  width: 48rpx;
+  height: 2rpx;
+  background: #CCC8C4;
+}

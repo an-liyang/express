@@ -1,0 +1,24 @@
+/* pages/orderDetail/components/comPayMethodInfo/index.wxss */
+.pay-method{
+  margin-top:24rpx;
+width:100%;
+padding:0rpx 24rpx 0rpx 24rpx;
+height: 112rpx;
+background: #FFFFFF;
+box-shadow: 0rpx 8rpx 24rpx 0rpx rgba(41, 37, 34, 0.02);
+border-radius: 8rx;
+display:flex;
+justify-content: space-between;
+align-items: center;
+box-sizing: border-box;
+font-size: 24rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #292522;
+}
+.pay-method-key{
+text-align: left;
+}
+.pay-method-val{
+text-align:right;
+}

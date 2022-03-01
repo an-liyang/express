@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "goodsItem": "./components/goodsItem/index",
+    "loading": "../../components/loading/index"
+  },
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "优惠商品",
+  "backgroundColor": "#ffffff",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 100
+}

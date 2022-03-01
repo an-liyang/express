@@ -1,0 +1,105 @@
+/* pages/servicePage/components/coupon-list/index.wxss */
+.discount-coupon-title{
+  display: flex;
+  justify-content: space-between;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin: 16rpx 0 30rpx 0;
+}
+.discount-coupon-title .left{
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #292522;
+}
+.discount-coupon-title .right{
+  font-size: 24rpx;
+  color: #A3A09D;
+  display: flex;
+  align-items: center;
+}
+.discount-coupon-title .more-icon{
+  width: 16rpx;
+  height: 24rpx;
+  vertical-align: top;
+  margin-left: 8rpx;
+}
+.discount-coupon-list {
+  display: flex;
+  justify-content: start;
+}
+.discount-coupon-item {
+  width: 224rpx;
+  height: 160rpx;
+  position: relative;
+}
+.discount-coupon-item .bg{
+  width: 224rpx;
+  height: 160rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: -1;
+}
+.discount-coupon-item:first-child{
+  margin-right: 16rpx;
+}
+.discount-coupon-item:nth-child(2){
+  margin-right: 14rpx;
+}
+
+.discount-coupon-item .tips{
+  height: 32rpx;
+  border-radius: 8rpx 0 8rpx 0;
+  position: absolute;                                                             
+  top: 0rpx;
+  left: 0rpx;
+}
+.w65{
+  width:130rpx;
+}
+.w56{
+  width:112rpx;
+}
+.discount-coupon-item .discount{
+  margin-top: 32rpx;
+  display: flex;
+  justify-content: center;
+  height: 56rpx;
+  font-size: 40rpx;
+  font-family: DINAlternate-Bold, DINAlternate;
+  font-weight: bold;
+  color: #F5222D;
+  line-height: 56rpx;
+}
+.discount-coupon-item .discount-unit{
+  margin-top: 10rpx;
+  height: 44rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Bold, PingFang SC;
+  line-height: 44rpx;
+}
+.discount-coupon-item .discount-unitText{
+  height: 56rpx;
+  margin-top: 2rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Bold, PingFang SC;
+  line-height: 56rpx;
+}
+.discount-coupon-item .condition{
+  height: 32rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Bold, PingFang SC;
+  font-weight: bold;
+  color: #F5222D;
+  line-height: 32rpx;
+  text-align: center;
+}
+.discount-coupon-item .limit{
+  height: 24rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #F5222D;
+  line-height: 24rpx;
+  text-align: center;
+}

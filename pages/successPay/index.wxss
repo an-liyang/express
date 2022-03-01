@@ -1,0 +1,62 @@
+/* pages/successPay/index.wxss */
+.pay-box{
+  width:100%;
+  height:calc(100vh-60px);
+}
+.top-status{
+  width:100%;
+  padding-top:158rpx;
+  box-sizing: border-box;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center;
+}
+.img{
+  width:116rpx;
+  height:116rpx;
+  display:inline-block;
+  margin-bottom:30rpx;
+}
+.txt{
+  font-size: 40rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #292522;
+  line-height: 56rpx;
+  text-align:center;
+}
+.btn-box{
+width:100%;
+padding:70rpx 147rpx 0rpx 147rpx;
+box-sizing: border-box;
+display:flex;
+justify-content: space-between;
+align-items:center;
+}
+.back-home{
+  width: 208rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  border: 2rpx solid #FF8833;
+  font-size: 28rpx;
+  font-family: PingFangSC-Bold, PingFang SC;
+  font-weight: bold;
+  color: #FF8833;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.look-order{
+  width: 208rpx;
+  height: 80rpx;
+  background: #FF8833;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Bold, PingFang SC;
+  font-weight: bold;
+  color: #FFFFFF;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}

@@ -1,0 +1,16 @@
+<!--pages/orderDetail/components/comShopDecorationInfo/index.wxml-->
+<wxs src="../../../../utils/format.wxs" module="fn"></wxs>
+<view class="shop-decoration">
+  <view class="shop-decoration-btn" wx:if="{{$state.orderDetailData.isEffective=='N'}}">店铺装修中</view>
+  <view class="continue-pay" wx:else>
+    <view class="current-price" wx:if="{{$state.orderDetailData.orderAmount}}">
+      <text class="price-unit">￥</text>
+      <text class="price-int">{{fn.formatValue($state.orderDetailData.orderAmount)[0]}}</text>
+      <text wx:if="{{fn.formatValue($state.orderDetailData.orderAmount)[1]}}">.</text>
+      <text class="price-float">{{fn.formatValue($state.orderDetailData.orderAmount)[1]}}</text>
+    </view>
+    <!-- <view class="pay-count">￥{{$state.orderDetailData.orderAmount}}</view> -->
+    <view class="{{$state.expireTime=='00:00:00'?'pay-btn un-pay':'pay-btn'}}" data-orderno="{{$state.orderDetailData.orderNo}}" data-goodtype="{{$state.orderDetailData.spuType}}" bindtap="handlePay">继续支付</view>
+  </view>
+</view>
+
